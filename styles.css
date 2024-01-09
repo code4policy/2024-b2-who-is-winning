@@ -8,13 +8,14 @@ html {
 /* styles for the body of the site */
 body {
   font-family: 'Lato', sans-serif;
-  width: 60%;
+  width: 80%;
   background-color: #E9C46A;
   border: 10px solid #E76F51;
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   margin-top: auto;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: auto;
   text-align: center;
 }
 
@@ -38,8 +39,9 @@ p {
 
 
 #chart-container {
-  display: flex;
+  display: 50px;
   justify-content: center;
   align-items: center;
   margin-top: 20px; /* Adjust as needed */
+  font-family: 'Lato', sans-serif;
 }

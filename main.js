@@ -15,7 +15,7 @@ d3.csv('GDPpercapita.csv')
 
     // Create a horizontal bar chart
     var margin = { top: 20, right: 20, bottom: 30, left: 120 }, // Increase left margin to accommodate labels
-      width = 800 - margin.left - margin.right, // Adjusted width
+      width = 900 - margin.left - margin.right, // Adjusted width
       height = 400 - margin.top - margin.bottom;
 
     var svg = d3.select('#chart-container').append('svg')
@@ -29,9 +29,10 @@ d3.csv('GDPpercapita.csv')
       .domain(top10Data.map(function(d) { return d.CountryName; }))
       .padding(0.1);
 
-    var x = d3.scaleLinear()
-      .range([0, width])
-      .domain([0, d3.max(top10Data, function(d) { return d.GDPpercapita; })]);
+   var x = d3.scaleLinear()
+  .range([0, width])
+  .domain([0, d3.max(top10Data, function(d) { return d.GDPpercapita; }) * 3]); // Extend the domain by 10%
+
 
     // Append X and Y axes
     svg.append('g')
