@@ -1,9 +1,8 @@
+/* styles.css */
+
 /* Set background */
 html {
   background-color: #264653;
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 }
 
 /* styles for the body of the site */
@@ -11,9 +10,9 @@ body {
   font-family: 'Lato', sans-serif;
   width: 60%;
   background-color: #E9C46A;
-  border: 5px solid #E76F51;
+  border: 10px solid #E76F51;
   padding: 0 20px 20px 20px;
-  margin-top: 25px;
+  margin-top: auto;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -37,13 +36,10 @@ p {
     color: black;
 }
 
-/* styles for image */
-img {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  height: auto;
 
+#chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adjust as needed */
 }
-
-ol {list-style-position: inside}
