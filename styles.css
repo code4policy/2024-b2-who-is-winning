@@ -1,0 +1,47 @@
+/* styles.css */
+
+/* Set background */
+html {
+  background-color: #264653;
+}
+
+/* styles for the body of the site */
+body {
+  font-family: 'Lato', sans-serif;
+  width: 80%;
+  background-color: #E9C46A;
+  border: 10px solid #E76F51;
+  padding: 20px 20px 20px 20px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+/* styles for headline */
+h1 {
+  font-family: 'Lato', sans-serif;
+  color: black;
+}
+
+/* styles for subheadline */
+h2 {
+  font-family: 'Lato', sans-serif;
+  color: black;
+  font-size: 20px;
+}
+
+/* styles for paragraph */
+p {
+    color: black;
+}
+
+
+#chart-container {
+  display: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adjust as needed */
+  font-family: 'Lato', sans-serif;
+}
