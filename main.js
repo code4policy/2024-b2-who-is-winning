@@ -43,14 +43,17 @@ d3.csv('GDPpercapita.csv')
       .call(d3.axisBottom(x));
 
     // Create horizontal bars
-    svg.selectAll('.bar')
-      .data(top10Data)
-      .enter().append('rect')
-      .attr('class', 'bar')
-      .attr('y', function(d) { return y(d.CountryName); })
-      .attr('height', y.bandwidth())
-      .attr('x', 0)
-      .attr('width', function(d) { return x(d.GDPpercapita); });
+   svg.selectAll('.bar')
+  .data(top10Data)
+  .enter().append('rect')
+  .attr('class', 'bar')
+  .attr('y', function(d) { return y(d.CountryName); })
+  .attr('height', y.bandwidth())
+  .attr('x', 0)
+  .attr('width', 0)  // Start with a width of 0 (added the missing '.')
+  .transition()     // Apply the transition
+  .duration(10000)    // Set the duration of the fade effect (in milliseconds)
+  .attr('width', function(d) { return x(d.GDPpercapita); });
   })
   .catch(function(error) {
     console.log(error);
