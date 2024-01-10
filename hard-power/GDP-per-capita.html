@@ -3,19 +3,58 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Demo Website</title>
+    <title>Who is Winning</title>
     <link href="../styles.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script> <!-- Add D3.js library -->
-    <script src="../main.js"></script> <!-- Include the JavaScript file -->
   </head>
   <body>
-    <h1>GDP per capita</h1>
 
-    <div id="chart-container"> <!-- Container for the chart -->
-    </div>
+   <h1>Who's Winning?</h1>
+        <h2>"USA this", "China that" - the news is covered with journalists comparing countries, but who's actually winning? Better still, who's winning in the metrics that matter to you? Scroll below for the definitive ranking of how countries compare on metrics you actually care about.</h2>
+        
+  <div id="quiz-container">
 
-    <a href='../index.html'>Home</a>
-  </body>
+      <h2 id="chart-header">Top 10 Countries - GDP per Capita (USD)</h2>
+
+      <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
+      <div>
+          Guess 1: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 2: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 3: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 4: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 5: <select class="quiz-select" size="10"></select>
+      </div>
+      <button onclick="checkQuiz()">Check Quiz</button>
+      <p id="quiz-result"></p>
+  </div>
+
+  <div>
+    <label for="yVariableSelect">Select Y Variable:</label>
+    <select id="yVariableSelect" onchange="updateChart()">
+      <!-- Pre-loaded variables in the dropdown -->
+      <option value="gdp_per_capita_usd" selected>GDP per Capita (USD)</option>
+      <option value="military_expenditure_usd">Military Expenditure (USD)</option>
+      <!-- Add more options as needed -->
+    </select>
+  </div>
+
+
+<div id="chart-container"> <!-- Container for the chart -->
+</div>
+
+<a href='../index.html'>Home</a>
+
+<script src="../main.js" defer></script> <!-- Include the JavaScript file -->
+</body>
+</html>
