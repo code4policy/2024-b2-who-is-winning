@@ -3,26 +3,38 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Demo Website</title>
+    <title>Who is Winning</title>
     <link href="../styles.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script> <!-- Add D3.js library -->
-    <script src="../main.js"></script> <!-- Include the JavaScript file -->
   </head>
   <body>
 
+  
   <div id="quiz-container">
 
-    <h2 id="chart-header">Top 10 Countries - GDP per Capita (USD)</h2>
-    
-    <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
-    <select id="quiz-select" multiple>
-      <!-- Options will be populated dynamically in the JavaScript code -->
-    </select>
-    <button onclick="checkQuiz()">Check Quiz</button>
-    <p id="quiz-result"></p>
+      <h2 id="chart-header">Top 10 Countries - GDP per Capita (USD)</h2>
+
+      <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
+      <div>
+          Guess 1: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 2: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 3: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 4: <select class="quiz-select" size="10"></select>
+      </div>
+      <div>
+          Guess 5: <select class="quiz-select" size="10"></select>
+      </div>
+      <button onclick="checkQuiz()">Check Quiz</button>
+      <p id="quiz-result"></p>
   </div>
 
   <div>
@@ -36,8 +48,11 @@
   </div>
 
 
-    <div id="chart-container"> <!-- Container for the chart -->
-    </div>
+<div id="chart-container"> <!-- Container for the chart -->
+</div>
 
-    <a href='../index.html'>Home</a>
-  </body>
+<a href='../index.html'>Home</a>
+
+<script src="../main.js" defer></script> <!-- Include the JavaScript file -->
+</body>
+</html>

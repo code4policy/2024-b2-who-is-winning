@@ -1,6 +1,6 @@
 // Default y variable
 var yVariable = 'gdp_per_capita_usd';
-var data;  // Declare data at a higher scope
+var data;
 
 // Function to update the chart based on user input
 function updateChart() {
@@ -12,10 +12,8 @@ function updateChart() {
   document.getElementById('chart-header').innerText = 'Top 10 Countries - ' + yVariable;
 
   // Load CSV file and create a horizontal bar chart with the top 10
-  d3.csv('whoiswinning.csv')
-    .then(function (csvData) {
-      data = csvData;  // Assign the loaded data to the higher-scoped variable
-
+  d3.csv('whoiswinning.csv').then(function (csvData) {
+      data = csvData;
       try {
         // Convert "NA" values to zero
         data.forEach(function (d) {
@@ -89,7 +87,7 @@ function updateChart() {
           });
 
         // Update the quiz options based on the selected variable
-        updateQuizOptions();
+        updateQuizOptions(data);
       } catch (error) {
         console.log(error);
       }
@@ -97,25 +95,33 @@ function updateChart() {
 }
 
 // Function to update the quiz options based on the selected variable
-function updateQuizOptions() {
-  // Get the select element for the quiz
-  var quizSelect = document.getElementById('quiz-select');
+function updateQuizOptions(data) {
+  // Get all the quiz select elements
+  var quizSelects = document.querySelectorAll('.quiz-select');
 
-  // Clear existing options
-  quizSelect.innerHTML = '';
+  // Clear existing options in all selects
+  quizSelects.forEach(function (quizSelect) {
+    if (quizSelect) {
+      quizSelect.innerHTML = '';
+    }
+  });
 
   // Populate the quiz options dynamically based on the selected variable
-  var allCountries = getAllCountries();
+  var allCountries = getAllCountries(data);
   allCountries.forEach(function (country) {
-    var option = document.createElement('option');
-    option.value = country;
-    option.text = country;
-    quizSelect.add(option);
+    quizSelects.forEach(function (quizSelect) {
+      if (quizSelect) {
+      var option = document.createElement('option');
+      option.value = country;
+      option.text = country;
+      quizSelect.add(option);
+      }
+    });
   });
 }
 
 // Function to get all countries
-function getAllCountries() {
+function getAllCountries(data) {
   // Map data from CSV to an array of country names
   var countryNames = data.map(function (d) {
     return d.country; // Assuming 'country' is the column name in your CSV file
@@ -127,23 +133,8 @@ function getAllCountries() {
   return countryNames;
 }
 
-// Function to check the quiz answers
-function checkQuiz() {
-  var selectedOptions = Array.from(document.getElementById('quiz-select').selectedOptions).map(option => option.value);
-
-  // Get the correct answers based on the selected variable
-  var correctAnswers = getTop10Countries();
-
-  // Check if the selected options match the correct answers
-  var isCorrect = selectedOptions.every(option => correctAnswers.includes(option));
-
-  // Display the result
-  var quizResult = document.getElementById('quiz-result');
-  quizResult.innerText = isCorrect ? 'Correct! You selected one of the top 10 countries.' : 'Incorrect. Try again!';
-}
-
 // Function to get the top 10 countries for a specific variable
-function getTop10Countries() {
+function getTop10Countries(data, variable) {
   // Implement logic to retrieve the top 10 countries for the specified variable
   // This could involve sorting the data and extracting the top 10
   // For simplicity, I'll return a placeholder array here
@@ -155,8 +146,8 @@ function getTop10Countries() {
 
   // Sort the country names based on the specified variable
   countryNames.sort(function (a, b) {
-    return data.find(countryData => countryData.country === b)[yVariable] -
-      data.find(countryData => countryData.country === a)[yVariable];
+    return data.find(countryData => countryData.country === b)[variable] -
+      data.find(countryData => countryData.country === a)[variable];
   });
 
   // Take only the top 10
@@ -165,6 +156,30 @@ function getTop10Countries() {
   return top10Countries;
 }
 
-// Initial load of the chart
-updateChart();
+// Function to check the quiz answers and calculate the score
+function checkQuiz() {
+  // Get the selected options from all quiz selects
+  var selectedOptions = [];
+  var quizSelects = document.querySelectorAll('.quiz-select');
+  quizSelects.forEach(function (quizSelect) {
+    selectedOptions.push(quizSelect.value);
+  });
 
+  // Get the correct answers based on the selected variable
+  var correctAnswers = getTop10Countries(data, yVariable);
+
+  // Calculate the score
+  var score = 0;
+  selectedOptions.forEach(function (selectedOption) {
+    if (correctAnswers.includes(selectedOption)) {
+      score++;
+    }
+  });
+
+  // Display the result and score
+  var quizResult = document.getElementById('quiz-result');
+  quizResult.innerText = `You scored ${score} out of 5. ${score === 5 ? 'Congratulations!' : 'Try again!'}`;
+}
+
+// Initial load of the chart and quiz options
+updateChart();
