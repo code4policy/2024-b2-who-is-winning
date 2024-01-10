@@ -52,7 +52,7 @@ d3.csv('GDPpercapita.csv')
   .attr('x', 0)
   .attr('width', 0)  // Start with a width of 0 (added the missing '.')
   .transition()     // Apply the transition
-  .duration(10000)    // Set the duration of the fade effect (in milliseconds)
+  .duration(1000)    // Set the duration of the fade effect (in milliseconds)
   .attr('width', function(d) { return x(d.GDPpercapita); });
   })
   .catch(function(error) {
