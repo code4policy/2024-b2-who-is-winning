@@ -1,60 +1,100 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>Who is Winning</title>
-    <link href="../styles.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script> <!-- Add D3.js library -->
-  </head>
-  <body>
+</head>
+<body>
 
-   <h1>Who's Winning?</h1>
-        <h2>"USA this", "China that" - the news is covered with journalists comparing countries, but who's actually winning? Better still, who's winning in the metrics that matter to you? Scroll below for the definitive ranking of how countries compare on metrics you actually care about.</h2>
-        
-  <div id="quiz-container">
+    <h1>Who's Winning?</h1>
+    <h2>"USA this", "China that" - the news is covered with journalists comparing countries, but who's actually winning? Better still, who's winning in the metrics that matter to you? Scroll below for the definitive ranking of how countries compare on metrics you actually care about.</h2>
+    
+     <div class="variable-dropdown">
+        <label for="yVariableSelect">Select Y Variable:</label>
+        <select id="yVariableSelect" onchange="updateChart()">
+            <option value="gdp_per_capita_usd" selected>GDP per Capita (USD)</option>
+            <option value="military_expenditure_usd">Military Expenditure (USD)</option>
+            <option value="gov_revenue_perGDP">Government Revenue per GDP</option>
+            <option value="ca_balance_perGDP">ca_balance_perGDP</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
 
-      <h2 id="chart-header">Top 10 Countries - GDP per Capita (USD)</h2>
+    <div class="quiz-container">
+        <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
+        <div class="guess-container">
+            <div class="guess">
+                Guess 1: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 2: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 3: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 4: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 5: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button class="button" onclick="checkQuiz()">Check Quiz</button>
+            <p id="quiz-result"></p>
+        </div>
+    </div>
 
-      <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
-      <div>
-          Guess 1: <select class="quiz-select" size="10"></select>
-      </div>
-      <div>
-          Guess 2: <select class="quiz-select" size="10"></select>
-      </div>
-      <div>
-          Guess 3: <select class="quiz-select" size="10"></select>
-      </div>
-      <div>
-          Guess 4: <select class="quiz-select" size="10"></select>
-      </div>
-      <div>
-          Guess 5: <select class="quiz-select" size="10"></select>
-      </div>
-      <button onclick="checkQuiz()">Check Quiz</button>
-      <p id="quiz-result"></p>
-  </div>
+    <h2 id="chart-header">'Top 10 Countries - GDP per capita (USD)'</h2>
+    <div id="chart-container"></div>
 
-  <div>
-    <label for="yVariableSelect">Select Y Variable:</label>
-    <select id="yVariableSelect" onchange="updateChart()">
-      <!-- Pre-loaded variables in the dropdown -->
-      <option value="gdp_per_capita_usd" selected>GDP per Capita (USD)</option>
-      <option value="military_expenditure_usd">Military Expenditure (USD)</option>
-      <!-- Add more options as needed -->
-    </select>
-  </div>
+    <br>
 
+    <div id="content">
+        <div id="countryInfo"></div>
+        <div id="map"></div>
+    </div>
+    
+    <script src="map.js"></script>
+    <br>
+    <a href='../index.html'>Home</a>
 
-<div id="chart-container"> <!-- Container for the chart -->
-</div>
-
-<a href='../index.html'>Home</a>
-
-<script src="../main.js" defer></script> <!-- Include the JavaScript file -->
+    <script src="../main.js" defer></script>
 </body>
 </html>
