@@ -1,5 +1,6 @@
 // Default y variable
 var yVariable = 'gdp_per_capita_usd';
+var data;  // Declare data at a higher scope
 
 // Function to update the chart based on user input
 function updateChart() {
@@ -7,23 +8,22 @@ function updateChart() {
   var selectElement = document.getElementById('yVariableSelect');
   yVariable = selectElement.value;
 
-  // Call the function to reload the chart with the updated variable
-  loadChart();
-}
+  // Change the header text based on the selected variable
+  document.getElementById('chart-header').innerText = 'Top 10 Countries - ' + yVariable;
 
-// Function to load the chart based on the current yVariable
-function loadChart() {
   // Load CSV file and create a horizontal bar chart with the top 10
   d3.csv('whoiswinning.csv')
-    .then(function(data) {
+    .then(function (csvData) {
+      data = csvData;  // Assign the loaded data to the higher-scoped variable
+
       try {
         // Convert "NA" values to zero
-        data.forEach(function(d) {
+        data.forEach(function (d) {
           d[yVariable] = isNaN(parseFloat(d[yVariable])) ? 0 : parseFloat(d[yVariable]);
         });
 
         // Sort data by the specified variable in descending order
-        data.sort(function(a, b) {
+        data.sort(function (a, b) {
           return b[yVariable] - a[yVariable];
         });
 
@@ -46,12 +46,12 @@ function loadChart() {
 
         var y = d3.scaleBand()
           .range([0, height])
-          .domain(top10Data.map(function(d) { return d.country; }))
+          .domain(top10Data.map(function (d) { return d.country; }))
           .padding(0.1);
 
         var x = d3.scaleLinear()
           .range([0, width])
-          .domain([0, d3.max(top10Data, function(d) { return d[yVariable]; })]);
+          .domain([0, d3.max(top10Data, function (d) { return d[yVariable]; })]);
 
         // Append X and Y axes
         svg.append('g')
@@ -66,10 +66,10 @@ function loadChart() {
           .data(top10Data)
           .enter().append('rect')
           .attr('class', 'bar')
-          .attr('y', function(d) { return y(d.country); })
+          .attr('y', function (d) { return y(d.country); })
           .attr('height', y.bandwidth())
           .attr('x', 0)
-          .attr('width', function(d) {
+          .attr('width', function (d) {
             // Log the problematic data
             if (isNaN(d[yVariable])) {
               console.error('Invalid value for ' + yVariable + ':', d[yVariable]);
@@ -78,8 +78,8 @@ function loadChart() {
             return isNaN(d[yVariable]) ? 0 : x(d[yVariable]);
           })
           .transition()
-          .duration(10000)
-          .attr('width', function(d) {
+          .duration(1000)
+          .attr('width', function (d) {
             // Log the problematic data
             if (isNaN(d[yVariable])) {
               console.error('Invalid value for ' + yVariable + ':', d[yVariable]);
@@ -88,27 +88,83 @@ function loadChart() {
             return isNaN(d[yVariable]) ? 0 : x(d[yVariable]);
           });
 
-          // Add text labels at the end of each bar
-/* svg.selectAll('.label')
-  .data(top10Data)
-  .enter().append('text')
-  .attr('class', 'label')
-  .attr('x', function(d) {
-    return x(d[yVariable]) + 5; // Adjust the position of the text
-  })
-  .attr('y', function(d) {
-    return y(d.country) + y.bandwidth() / 2; // Center the text vertically
-  })
-  .text(function(d) {
-     return d3.format(',')(Math.round(d[yVariable]));
-  })
-  .style('fill', 'black'); // Adjust the text color if needed*/
+        // Update the quiz options based on the selected variable
+        updateQuizOptions();
       } catch (error) {
         console.log(error);
       }
     });
 }
 
+// Function to update the quiz options based on the selected variable
+function updateQuizOptions() {
+  // Get the select element for the quiz
+  var quizSelect = document.getElementById('quiz-select');
+
+  // Clear existing options
+  quizSelect.innerHTML = '';
+
+  // Populate the quiz options dynamically based on the selected variable
+  var allCountries = getAllCountries();
+  allCountries.forEach(function (country) {
+    var option = document.createElement('option');
+    option.value = country;
+    option.text = country;
+    quizSelect.add(option);
+  });
+}
+
+// Function to get all countries
+function getAllCountries() {
+  // Map data from CSV to an array of country names
+  var countryNames = data.map(function (d) {
+    return d.country; // Assuming 'country' is the column name in your CSV file
+  });
+
+  // Sort the country names alphabetically
+  countryNames.sort();
+
+  return countryNames;
+}
+
+// Function to check the quiz answers
+function checkQuiz() {
+  var selectedOptions = Array.from(document.getElementById('quiz-select').selectedOptions).map(option => option.value);
+
+  // Get the correct answers based on the selected variable
+  var correctAnswers = getTop10Countries();
+
+  // Check if the selected options match the correct answers
+  var isCorrect = selectedOptions.every(option => correctAnswers.includes(option));
+
+  // Display the result
+  var quizResult = document.getElementById('quiz-result');
+  quizResult.innerText = isCorrect ? 'Correct! You selected one of the top 10 countries.' : 'Incorrect. Try again!';
+}
+
+// Function to get the top 10 countries for a specific variable
+function getTop10Countries() {
+  // Implement logic to retrieve the top 10 countries for the specified variable
+  // This could involve sorting the data and extracting the top 10
+  // For simplicity, I'll return a placeholder array here
+
+  // Map data from CSV to an array of country names
+  var countryNames = data.map(function (d) {
+    return d.country; // Assuming 'country' is the column name in your CSV file
+  });
+
+  // Sort the country names based on the specified variable
+  countryNames.sort(function (a, b) {
+    return data.find(countryData => countryData.country === b)[yVariable] -
+      data.find(countryData => countryData.country === a)[yVariable];
+  });
+
+  // Take only the top 10
+  var top10Countries = countryNames.slice(0, 10);
+
+  return top10Countries;
+}
+
 // Initial load of the chart
-loadChart();
+updateChart();
 

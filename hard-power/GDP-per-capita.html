@@ -12,6 +12,19 @@
     <script src="../main.js"></script> <!-- Include the JavaScript file -->
   </head>
   <body>
+
+  <div id="quiz-container">
+
+    <h2 id="chart-header">Top 10 Countries - GDP per Capita (USD)</h2>
+    
+    <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
+    <select id="quiz-select" multiple>
+      <!-- Options will be populated dynamically in the JavaScript code -->
+    </select>
+    <button onclick="checkQuiz()">Check Quiz</button>
+    <p id="quiz-result"></p>
+  </div>
+
   <div>
     <label for="yVariableSelect">Select Y Variable:</label>
     <select id="yVariableSelect" onchange="updateChart()">

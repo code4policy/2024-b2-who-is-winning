@@ -26,7 +26,7 @@ h1 {
 }
 
 /* styles for subheadline */
-h2 {
+h2,h3 {
   font-family: 'Lato', sans-serif;
   color: black;
   font-size: 20px;
@@ -37,12 +37,19 @@ p {
     color: black;
 }
 
+select#yVariableSelect {
+  width: auto; /* Set a specific width */
+  padding: 5px; /* Add padding for better visibility and clickability */
+  font-size: 12px; /* Adjust font size */
+  margin-top: 10px; /* Adjust margin as needed */
+}
 
 #chart-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px; /* Adjust as needed */
+  font-size: 12px;
   font-family: 'Lato', sans-serif;
 }
 
