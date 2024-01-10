@@ -1,15 +1,18 @@
+// Specify the variable to be used for the y-axis
+var yVariable = 'gdp_per_capita_usd';
+
 // Load CSV file and create a horizontal bar chart with the top 10
 d3.csv('whoiswinning.csv')
   .then(function(data) {
     try {
       // Convert "NA" values to zero
       data.forEach(function(d) {
-        d.gdp_per_capita_usd = isNaN(parseFloat(d.gdp_per_capita_usd)) ? 0 : parseFloat(d.gdp_per_capita_usd);
+        d[yVariable] = isNaN(parseFloat(d[yVariable])) ? 0 : parseFloat(d[yVariable]);
       });
 
-      // Sort data by gdp_per_capita_usd in descending order
+      // Sort data by the specified variable in descending order
       data.sort(function(a, b) {
-        return b.gdp_per_capita_usd - a.gdp_per_capita_usd;
+        return b[yVariable] - a[yVariable];
       });
 
       // Take only the top 10
@@ -35,7 +38,7 @@ d3.csv('whoiswinning.csv')
 
       var x = d3.scaleLinear()
         .range([0, width])
-        .domain([0, d3.max(top10Data, function(d) { return d.gdp_per_capita_usd; })]);
+        .domain([0, d3.max(top10Data, function(d) { return d[yVariable]; })]);
 
       // Append X and Y axes
       svg.append('g')
@@ -55,24 +58,25 @@ d3.csv('whoiswinning.csv')
         .attr('x', 0)
         .attr('width', function(d) {
           // Log the problematic data
-          if (isNaN(d.gdp_per_capita_usd)) {
-            console.error('Invalid value for gdp_per_capita_usd:', d.gdp_per_capita_usd);
+          if (isNaN(d[yVariable])) {
+            console.error('Invalid value for ' + yVariable + ':', d[yVariable]);
           }
-          // Check if gdp_per_capita_usd is a valid number
-          return isNaN(d.gdp_per_capita_usd) ? 0 : x(d.gdp_per_capita_usd);
+          // Check if the specified variable is a valid number
+          return isNaN(d[yVariable]) ? 0 : x(d[yVariable]);
         })
         .transition()
         .duration(1000)
         .attr('width', function(d) {
           // Log the problematic data
-          if (isNaN(d.gdp_per_capita_usd)) {
-            console.error('Invalid value for gdp_per_capita_usd:', d.gdp_per_capita_usd);
+          if (isNaN(d[yVariable])) {
+            console.error('Invalid value for ' + yVariable + ':', d[yVariable]);
           }
-          // Check if gdp_per_capita_usd is a valid number
-          return isNaN(d.gdp_per_capita_usd) ? 0 : x(d.gdp_per_capita_usd);
+          // Check if the specified variable is a valid number
+          return isNaN(d[yVariable]) ? 0 : x(d[yVariable]);
         });
     } catch (error) {
       console.log(error);
     }
   });
+
 
