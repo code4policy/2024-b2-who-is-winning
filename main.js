@@ -78,7 +78,7 @@ function loadChart() {
             return isNaN(d[yVariable]) ? 0 : x(d[yVariable]);
           })
           .transition()
-          .duration(1000)
+          .duration(10000)
           .attr('width', function(d) {
             // Log the problematic data
             if (isNaN(d[yVariable])) {
@@ -87,6 +87,22 @@ function loadChart() {
             // Check if the specified variable is a valid number
             return isNaN(d[yVariable]) ? 0 : x(d[yVariable]);
           });
+
+          // Add text labels at the end of each bar
+/* svg.selectAll('.label')
+  .data(top10Data)
+  .enter().append('text')
+  .attr('class', 'label')
+  .attr('x', function(d) {
+    return x(d[yVariable]) + 5; // Adjust the position of the text
+  })
+  .attr('y', function(d) {
+    return y(d.country) + y.bandwidth() / 2; // Center the text vertically
+  })
+  .text(function(d) {
+     return d3.format(',')(Math.round(d[yVariable]));
+  })
+  .style('fill', 'black'); // Adjust the text color if needed*/
       } catch (error) {
         console.log(error);
       }
