@@ -8,7 +8,7 @@ function getData(countryName, csvData, selectedOption) {
 function getColor(d, csvData, selectedOption, colorScale) {
     const dataValue = getData(d.properties.ADMIN, csvData, selectedOption);
     if (dataValue === null) {
-        return 'black'; // Color for countries with no data
+        return 'red'; // Color for countries with no data
     }
     return colorScale(dataValue); // Use a color scale for data values
 }
@@ -20,16 +20,16 @@ d3.json('countries.geojson').then(function(geojsonData) {
     d3.csv('../CSV_Files/whoiswinning-updated.csv').then(function(csvData) {
 
         // Define your color scale here
-        // Replace 'initial_option' with the key of the initial data column you want to display
         const initialOption = 'GDP per Capita (in USD)';
         const minValue = d3.min(csvData, d => parseFloat(d[initialOption]));
         const maxValue = d3.max(csvData, d => parseFloat(d[initialOption]));
         const colorScale = d3.scaleLinear().domain([minValue, maxValue]).range(["lightblue", "darkblue"]);
 
-        // Create the SVG element for the map
-        const svg = d3.select("body").append("svg")
+        // Create the SVG element for the map with white background
+        const svg = d3.select("#map-container").append("svg")
             .attr("width", 960)
-            .attr("height", 600);
+            .attr("height", 600)
+            .style("background-color", "white"); // Set background color to white
 
         // Define a projection and path generator
         const projection = d3.geoNaturalEarth1()
@@ -43,7 +43,8 @@ d3.json('countries.geojson').then(function(geojsonData) {
             .enter().append("path")
             .attr("d", path)
             .attr("fill", d => getColor(d, csvData, initialOption, colorScale))
-            .attr("stroke", "white");
+            .attr("stroke", "black") // Set country borders to black
+            .attr("stroke-width", 0.2); // Set border width to 0.2 pixels
 
         // Listen to changes in the dropdown
         d3.select('select').on('change', function() {
