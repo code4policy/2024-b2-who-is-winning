@@ -1,0 +1,83 @@
+/* styles.css */
+
+/* General styles */
+html {
+  background-color: #264653;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background-color: #E9C46A;
+  border: 10px solid #E76F51;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-family: 'Lato', sans-serif;
+  color: black;
+}
+
+h2, h3 {
+  font-size: 20px;
+}
+
+p {
+  color: black;
+}
+
+/* Styles for specific elements and IDs */
+select#yVariableSelect {
+  width: auto;
+  padding: 5px;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+#chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.bar {
+  fill: #264653;
+}
+
+.variable-dropdown {
+  text-align: center;
+  padding: 20px;
+  align-items: center;
+}
+
+
+#map {
+  width: 760px;
+  height: 400px;
+  border: 3px solid #E76F51;
+  background-color: white;
+}
+
+/* Styles for .button class */
+.button {
+  margin-top: 20px; /* Space above the button */
+  /* Add more styling as needed */
+}
+
+/* Styles for .quiz-result class */
+.quiz-result {
+  margin-top: 20px; /* Space above the quiz result */
+  /* Add more styling as needed */
+}
+
+#map-container {
+    border: 3px solid black; /* 3-pixel black border */
+    display: block; /* Adjust display as needed */
+    margin: 20px auto; /* Center the container */
+    padding: 10px; /* Optional: Adds space inside the box */
+    max-width: 960px; /* Adjust according to the map size */
+}
