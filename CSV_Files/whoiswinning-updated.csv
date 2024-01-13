@@ -1,4 +1,4 @@
-country,Trade Balance (% of GDP),Government Revenue (% of GDP),GDP per Capita (in USD),Military Expenditure (in million USD),Int'l Tourist Arrivals,Dog Ownership,Cat Ownership,Movie Production,Global Box Office (in USD),Air Quality,Hapiness Score,Life Expectancy at birth,Mean Years of Schooling,Income per capita (in USD),Gender Inequality Index,Forest Area (sq. km),Renewables (% of electricity)
+country,Trade Balance (% of GDP),Government Revenue (% of GDP),GDP per Capita (in USD),Military Expenditure (in million USD),Int'l Tourist Arrivals,Dog Ownership,Cat Ownership,Movie Production,Global Box Office (in USD),Air Quality,Happiness Score,Life Expectancy at birth,Mean Years of Schooling,Income per capita (in USD),Gender Inequality Index,Forest Area (sq. km),Renewables (% of electricity)
 Afghanistan,,,,278.25,,,,21,"5,067,922",62.49,1.859,62,3,"1,824",0.678,1208440,
 Albania,-7.8,27.62,15138.76,236.42,2658000,,,13,"1,668,679",16.28,5.277,76.5,11.3,"14,131",0.144,788900,
 Algeria,7.16,33.38,10897.17,9112.46,591000,,,17,"47,510,533",22.68,5.329,76.4,8.1,"10,800",0.499,1949000,0.84
