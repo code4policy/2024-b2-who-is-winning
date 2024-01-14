@@ -7,13 +7,19 @@
     <link href="styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script> <!-- Add D3.js library -->
+    <script src="main.js" defer></script>
 </head>
 <body>
 
     <h1>Who's Winning?</h1>
-    <h2>"USA this", "China that" - the news is covered with journalists comparing countries, but who's actually winning? Better still, who's winning in the metrics that matter to you? Scroll below for the definitive ranking of how countries compare on metrics you actually care about.</h2>
+
+    <p>""USA this", "China that" - the news is covered with journalists comparing countries, but do you know which countries are actually winning? What does ‘winning’ even mean?</p>
+
+    <p>The truth is, there isn’t a straightforward answer to which country is ‘winning’ because there are all sorts of metrics you can compare them by: how much money they make, how happy their population is etc. That’s why we’ve developed this tool, which allows you to see the top 10 countries that are winning for a specific metric.</p>
+
+    <p>But we’re gonna make you work for it! To stop you from saying “well, everyone knows that” when you get the answers, you’ll have to play a quiz first to test your knowledge. First, select the variable you want to look at. </p>
 
      <div class="variable-dropdown">
         <label for="yVariableSelect">Select Y Variable:</label>
@@ -38,6 +44,8 @@
             <!-- Add more options as needed -->
         </select>
     </div>
+
+    <p>Now the test! For your selected metric, which 5 countries do you think make it to the top 10 out of all the countries in the world? We’ll tell you which ones you got right/wrong, and you can keep guessing until you’re satisfied with your answers. Once you’re tired of playing, click ‘Skip to the results’ to find out the right answers.</p>
 
     <div class="quiz-container">
         <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
@@ -89,7 +97,11 @@
             </div>
         </div>
         <div>
-            <button class="button" onclick="checkQuiz()">Check Quiz</button>
+
+        <div class="button-container">
+            <button class="button-53" onclick="checkQuiz()">Check Quiz</button>
+            <button class="button-53" onclick="skipToResults()">Skip to  Results</button>
+        </div>
             <p id="quiz-result"></p>
         </div>
     </div>
@@ -99,6 +111,5 @@
 
     <a href='../index.html'>Home</a>
 
-    <script src="../main.js" defer></script>
 </body>
 </html>
