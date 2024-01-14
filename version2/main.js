@@ -156,9 +156,6 @@ function updateChart() {
     } catch (error) {
       console.log(error);
     }
-  }).then(function() {
-    // Call checkQuiz after data is loaded
-    checkQuiz();
   });
 }
 
