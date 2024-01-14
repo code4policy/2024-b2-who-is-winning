@@ -2,6 +2,9 @@
 var yVariable = 'GDP_per_Capita';
 var data;
 
+// Store selected quiz values
+var selectedQuizValues = [];
+
 // Function to update the chart based on user input
 function updateChart() {
   // Get the selected value from the dropdown list
@@ -99,9 +102,18 @@ function updateQuizOptions(data) {
   // Get all the quiz select elements
   var quizSelects = document.querySelectorAll('.quiz-select');
 
+  // Store selected values before clearing options
+  selectedQuizValues = [];
+  quizSelects.forEach(function (quizSelect) {
+    selectedQuizValues.push(quizSelect.value);
+  });
+
   // Clear existing options in all selects
   quizSelects.forEach(function (quizSelect) {
     if (quizSelect) {
+      // Store the selected index to retain the selection
+      var selectedIndex = quizSelect.selectedIndex;
+
       quizSelect.innerHTML = '';
 
       // Add a default option
@@ -109,20 +121,24 @@ function updateQuizOptions(data) {
       defaultOption.value = '';
       defaultOption.text = 'Select here';
       quizSelect.add(defaultOption);
-    }
-  });
 
-  // Populate the quiz options dynamically based on the selected variable
-  var allCountries = getAllCountries(data);
-  allCountries.forEach(function (country) {
-    quizSelects.forEach(function (quizSelect) {
-      if (quizSelect) {
+      // Populate the quiz options dynamically based on the selected variable
+      var allCountries = getAllCountries(data);
+      allCountries.forEach(function (country) {
         var option = document.createElement('option');
         option.value = country;
         option.text = country;
         quizSelect.add(option);
-      }
-    });
+      });
+
+      // Set back the selected values
+      quizSelect.selectedIndex = selectedIndex;
+    }
+  });
+
+  // Set the selected values again after options are populated
+  quizSelects.forEach(function (quizSelect, index) {
+    quizSelect.value = selectedQuizValues[index];
   });
 }
 
@@ -241,13 +257,20 @@ updateChart();
 document.addEventListener('DOMContentLoaded', function() {
   const selectElement = document.getElementById('indicator-select');
 
-  d3.csv('whoiswinning.csv').then(data => {
-    const indicators = data.columns.slice(1); // Skip the first column ('country')
-    indicators.forEach(indicator => {
-      const option = document.createElement('option');
-      option.value = indicator;
-      option.textContent = indicator;
-      selectElement.appendChild(option);
+  if (selectElement) {
+    d3.csv('whoiswinning.csv').then(data => {
+      const indicators = data.columns.slice(1); // Skip the first column ('country')
+      indicators.forEach(indicator => {
+        const option = document.createElement('option');
+        option.value = indicator;
+        option.textContent = indicator;
+        selectElement.appendChild(option);
+      });
     });
-  });
+  }
 });
+
+// Function to refresh the page
+function refreshPage() {
+  location.reload();
+}
