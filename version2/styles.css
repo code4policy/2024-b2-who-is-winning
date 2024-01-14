@@ -1,0 +1,145 @@
+/* styles.css */
+
+/* Set background */
+html {
+  background-color: #264653;
+}
+
+/* styles for the body of the site */
+body {
+  font-family: 'Lato', sans-serif;
+  width: 80%;
+  background-color: #E9C46A;
+  border: 10px solid #E76F51;
+  padding: 20px 20px 20px 20px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+/* styles for headline */
+h1 {
+  font-family: 'Lato', sans-serif;
+  color: black;
+}
+
+/* styles for subheadline */
+h2,h3 {
+  font-family: 'Lato', sans-serif;
+  color: black;
+  font-size: 20px;
+}
+
+/* styles for paragraph */
+p {
+    color: black;
+}
+
+select#yVariableSelect {
+  width: auto; /* Set a specific width */
+  padding: 5px; /* Add padding for better visibility and clickability */
+  font-size: 12px; /* Adjust font size */
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+#chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adjust as needed */
+  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+}
+
+.bar {
+  fill: #264653; /* Set the fill color using CSS */
+}
+
+/* Container for guess options */
+#quiz-container {
+  display: flex;
+  flex-wrap: wrap; /* Enable wrapping to the next line if needed */
+  justify-content: space-around; /* Adjust as needed */
+  align-items: flex-start; /* Align items at the top of the container */
+}
+
+/* Individual guess option box */
+#quiz-container > div {
+  flex: 0 0 30%; /* Set a fixed width for each box (adjust as needed) */
+  margin: 10px; /* Adjust margin as needed */
+  padding: 10px;
+  border: 2px solid #E76F51;
+  background-color: #F4A261;
+}
+
+/* Header for each guess option box */
+#quiz-container > div h3 {
+  color: black;
+  font-size: 16px; /* Adjust font size */
+}
+
+/* Styles for the select dropdown within each box */
+#quiz-container .quiz-select {
+  height: 50px;
+  width: 75%; /* Take full width of the box */
+  margin-top: 5px; /* Adjust margin as needed */
+}
+
+#chart-container svg .axis text {
+  font-size: 20px; /* Set font size for axis text using CSS */
+
+}
+
+.image-class {
+  max-width: 20%; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 960px;
+    margin: auto;
+}
+
+#countryInfo {
+    width: 200px;
+    height: 70px; /* Adjusted height to match the map */
+    border: 3px solid darkblue;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+/* Styles for the person images */
+.person-profile img {
+    max-width: 150px; /* Adjust the maximum width of the images */
+    border-radius: 50%; /* Optional: Add a rounded border for a nicer look */
+    margin-right: 20px; /* Adjust as needed */
+    align-items: center;
+}
+
+/* Styles for the person descriptions */
+.person-profile .description {
+    align-items: center;
+    flex: 1;
+    width: auto; /* Adjust the maximum width of the description */
+}
+
+#map {
+    width: 760px;
+    height: 400px; /* Reduced height to 400px */
+    border: 3px solid darkblue;
+}
