@@ -21,7 +21,57 @@ function updateChart() {
   } else if (yVariable === 'government_revenue') {
     chartHeader.innerText = 'Top 10 Countries by Government Revenue as a % of GDP';
     chartSubheader.innerText = 'According to data from xxx';
+    } else if (yVariable === 'GDP_per_Capita') {
+    chartHeader.innerText = 'Top 10 Countries by GDP per capita (USD)';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'military_expenditure') {
+    chartHeader.innerText = 'Top 10 Countries by Military Expenditure';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'tourist_arrivals') {
+    chartHeader.innerText = 'Top 10 Countries by Tourist Arrivals';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'dog_ownership') {
+    chartHeader.innerText = 'Top 10 Countries by Dog Ownership';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'cat_ownership') {
+    chartHeader.innerText = 'Top 10 Countries by Cat Ownership';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'movie_production') {
+    chartHeader.innerText = 'Top 10 Countries by Number of Movies';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'box_office_numbers') {
+    chartHeader.innerText = 'Top 10 Countries by Box Office Numbers';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'air_quality') {
+    chartHeader.innerText = 'Top 10 Countries by Air Quality';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'happiness') {
+    chartHeader.innerText = 'Top 10 Happiest Countries';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'life_expectancy') {
+    chartHeader.innerText = 'Top 10 Countries by Life Expectancy';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'mean_years_of_schooling') {
+    chartHeader.innerText = 'Top 10 Countries by Mean Years of Schooling';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'income_per_capita') {
+    chartHeader.innerText = 'Top 10 Countries by Income per Capita';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'gender_inequality') {
+    chartHeader.innerText = 'Top 10 Countries by Gender Inequality';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'forest_area') {
+    chartHeader.innerText = 'Top 10 Countries by Forest Area ';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'renewables') {
+    chartHeader.innerText = 'Top 10 Countries by Renewables (as a % of total electricity)';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else {
+    // Add more conditions as needed
+    // Default case
+    chartHeader.innerText = 'Top 10 Countries - ' + yVariable;
   }
+
 
   // Load CSV file and create a horizontal bar chart with the top 10
   d3.csv('whoiswinning.csv').then(function (csvData) {
