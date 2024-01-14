@@ -58,6 +58,7 @@ select#yVariableSelect {
 
 #chart-container-wrapper {
   display: none;
+  font-size: 30px;
 }
 
 #chart-container {

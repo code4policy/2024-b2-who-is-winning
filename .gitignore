@@ -1,1 +1,5 @@
-.DS_Store
+    touch .gitignore
+    echo ".DS_Store" > .gitignore
+    git add .gitignore
+    git commit -m "make git ignore .DS_Store files"
+    git push
