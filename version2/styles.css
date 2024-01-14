@@ -56,18 +56,28 @@ select#yVariableSelect {
   margin-top: 10px; /* Adjust margin as needed */
 }
 
-#chart-header {
-  display:none;
+#chart-container-wrapper {
+  display: none;
+  font-size: 30px;
 }
 
 #chart-container {
   font-family: 'Lato', sans-serif;
-  display: none;
+/*  display: none;*/
   justify-content: center;
   align-items: center;
   margin-top: 20px; /* Adjust as needed */
   font-size: 12px;
   font-family: 'Lato', sans-serif;
+}
+
+/* Add a new class for the chart SVG element */
+.chart-svg {
+  /* Adjust width and height as needed */
+  width: auto; /* Use a percentage to make it responsive or set a fixed width */
+  height: auto; /* Allow the height to adjust automatically */
+  text-align: center;
+  align-items: center;
 }
 
 .bar {
@@ -192,17 +202,19 @@ select#yVariableSelect {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 960px;
+    width: 2000px;
     margin: auto;
 }
 
-g[Attributes] {
-    fill: none;
-    font-size: 20;
-    font-family: sans-serif;
-    text-anchor: end;
+.y-axis text {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px/* Your Y-axis styling here */
 }
 
+.x-axis text {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px/* Your X-axis styling here */
+}
 
 #countryInfo {
     width: 200px;

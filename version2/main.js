@@ -11,8 +11,67 @@ function updateChart() {
   var selectElement = document.getElementById('yVariableSelect');
   yVariable = selectElement.value;
 
-  // Change the header text based on the selected variable
-  document.getElementById('chart-header').innerText = 'Top 10 Countries - ' + yVariable;
+  // Customize the header text based on the selected variable
+  var chartHeader = document.getElementById('chart-header');
+  var chartSubheader = document.getElementById('chart-subheader');
+
+  if (yVariable === 'trade_balance') {
+    chartHeader.innerText = 'Top 10 Countries by Trade Balance';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'government_revenue') {
+    chartHeader.innerText = 'Top 10 Countries by Government Revenue as a % of GDP';
+    chartSubheader.innerText = 'According to data from xxx';
+    } else if (yVariable === 'GDP_per_Capita') {
+    chartHeader.innerText = 'Top 10 Countries by GDP per capita (USD)';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'military_expenditure') {
+    chartHeader.innerText = 'Top 10 Countries by Military Expenditure';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'tourist_arrivals') {
+    chartHeader.innerText = 'Top 10 Countries by Tourist Arrivals';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'dog_ownership') {
+    chartHeader.innerText = 'Top 10 Countries by Dog Ownership';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'cat_ownership') {
+    chartHeader.innerText = 'Top 10 Countries by Cat Ownership';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'movie_production') {
+    chartHeader.innerText = 'Top 10 Countries by Number of Movies';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'box_office_numbers') {
+    chartHeader.innerText = 'Top 10 Countries by Box Office Numbers';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'air_quality') {
+    chartHeader.innerText = 'Top 10 Countries by Air Quality';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'happiness') {
+    chartHeader.innerText = 'Top 10 Happiest Countries';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'life_expectancy') {
+    chartHeader.innerText = 'Top 10 Countries by Life Expectancy';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'mean_years_of_schooling') {
+    chartHeader.innerText = 'Top 10 Countries by Mean Years of Schooling';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'income_per_capita') {
+    chartHeader.innerText = 'Top 10 Countries by Income per Capita';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'gender_inequality') {
+    chartHeader.innerText = 'Top 10 Countries by Gender Inequality';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'forest_area') {
+    chartHeader.innerText = 'Top 10 Countries by Forest Area ';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'renewables') {
+    chartHeader.innerText = 'Top 10 Countries by Renewables (as a % of total electricity)';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else {
+    // Add more conditions as needed
+    // Default case
+    chartHeader.innerText = 'Top 10 Countries - ' + yVariable;
+  }
+
 
   // Load CSV file and create a horizontal bar chart with the top 10
   d3.csv('whoiswinning.csv').then(function (csvData) {
@@ -34,12 +93,13 @@ function updateChart() {
       console.log('Sorted Data:', top10Data); // Log top 10 data
 
       // Create a horizontal bar chart
-      var margin = { top: 20, right: 20, bottom: 30, left: 120 }, // Increase left margin to accommodate labels
+      var margin = { top: 20, right: 20, bottom: 30, left: 150 }, // Increase left margin to accommodate labels
         width = 900 - margin.left - margin.right, // Adjusted width
         height = 400 - margin.top - margin.bottom;
 
       var svg = d3.select('#chart-container').html('') // Clear existing content
         .append('svg')
+        .attr('class', 'chart-svg') // Add a class to the SVG element  
         .attr('width', width + margin.left + margin.right)
         .attr('height', height + margin.top + margin.bottom)
         .append('g')
@@ -105,7 +165,7 @@ function updateQuizOptions(data) {
   var quizSelects = document.querySelectorAll('.quiz-select');
 
   // Store selected values before clearing options
-  selectedQuizValues = [];
+  var selectedQuizValues = [];
   quizSelects.forEach(function (quizSelect) {
     selectedQuizValues.push(quizSelect.value);
   });
@@ -116,6 +176,10 @@ function updateQuizOptions(data) {
       // Store the selected index to retain the selection
       var selectedIndex = quizSelect.selectedIndex;
 
+      // Update options dynamically based on the selected variable
+      var allCountries = getAllCountries(data);
+
+      // Remove existing options
       quizSelect.innerHTML = '';
 
       // Add a default option
@@ -125,7 +189,6 @@ function updateQuizOptions(data) {
       quizSelect.add(defaultOption);
 
       // Populate the quiz options dynamically based on the selected variable
-      var allCountries = getAllCountries(data);
       allCountries.forEach(function (country) {
         var option = document.createElement('option');
         option.value = country;
@@ -190,6 +253,14 @@ function checkQuiz() {
     selectedOptions.push(quizSelect.value);
   });
 
+  // Function to reset previous ticks and crosses
+function resetQuizUI() {
+  var tickCrossElements = document.querySelectorAll('.guess-container span');
+  tickCrossElements.forEach(function (element) {
+    element.remove();
+  });
+}
+
   // Get the correct answers based on the selected variable
   var correctAnswers = getTop10Countries(data, yVariable);
 
@@ -217,17 +288,19 @@ function checkQuiz() {
   quizResult.innerText = `You scored ${score} out of 5. ${score === 5 ? 'Congratulations!' : 'Try again!'}`;
 }
 
-// Function to reset previous ticks and crosses
-function resetQuizUI() {
-  var tickCrossElements = document.querySelectorAll('.guess-container span');
-  tickCrossElements.forEach(function (element) {
-    element.remove();
-  });
+function toggleChartHeader() {
+  var chartHeaderContainer = document.getElementById('chart-header-container');
+  if (chartHeaderContainer.style.display === 'none') {
+    chartHeaderContainer.style.display = 'block';
+  } else {
+    chartHeaderContainer.style.display = 'none';
+  }
 }
+
 
 // Function to show results and scroll to the chart
 function skipToResults() {
-  var chartContainer = document.getElementById("chart-container");
+  var chartContainer = document.getElementById("chart-container-wrapper");
   var mapContainer = document.getElementById("map-container");
   var additionalParagraphs = document.querySelectorAll("#quiz-result ~ p");
 
@@ -240,6 +313,7 @@ function skipToResults() {
     additionalParagraphs.forEach(function (paragraph) {
       paragraph.style.display = "block";
     });
+
 
     // Scroll to the chart
     chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
