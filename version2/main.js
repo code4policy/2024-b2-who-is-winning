@@ -56,11 +56,13 @@ function updateChart() {
 
       // Append X and Y axes
       svg.append('g')
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .classed('y-axis', true); // Add a class to the Y-axis group
 
       svg.append('g')
         .attr('transform', 'translate(0,' + height + ')')
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .classed('x-axis', true); // Add a class to the X-axis group;
 
       // Create horizontal bars
       svg.selectAll('.bar')
