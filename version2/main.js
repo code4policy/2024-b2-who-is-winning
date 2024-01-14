@@ -165,7 +165,7 @@ function updateQuizOptions(data) {
   var quizSelects = document.querySelectorAll('.quiz-select');
 
   // Store selected values before clearing options
-  selectedQuizValues = [];
+  var selectedQuizValues = [];
   quizSelects.forEach(function (quizSelect) {
     selectedQuizValues.push(quizSelect.value);
   });
@@ -176,6 +176,10 @@ function updateQuizOptions(data) {
       // Store the selected index to retain the selection
       var selectedIndex = quizSelect.selectedIndex;
 
+      // Update options dynamically based on the selected variable
+      var allCountries = getAllCountries(data);
+
+      // Remove existing options
       quizSelect.innerHTML = '';
 
       // Add a default option
@@ -185,7 +189,6 @@ function updateQuizOptions(data) {
       quizSelect.add(defaultOption);
 
       // Populate the quiz options dynamically based on the selected variable
-      var allCountries = getAllCountries(data);
       allCountries.forEach(function (country) {
         var option = document.createElement('option');
         option.value = country;
@@ -250,6 +253,14 @@ function checkQuiz() {
     selectedOptions.push(quizSelect.value);
   });
 
+  // Function to reset previous ticks and crosses
+function resetQuizUI() {
+  var tickCrossElements = document.querySelectorAll('.guess-container span');
+  tickCrossElements.forEach(function (element) {
+    element.remove();
+  });
+}
+
   // Get the correct answers based on the selected variable
   var correctAnswers = getTop10Countries(data, yVariable);
 
@@ -275,14 +286,6 @@ function checkQuiz() {
   // Display the result and score
   var quizResult = document.getElementById('quiz-result');
   quizResult.innerText = `You scored ${score} out of 5. ${score === 5 ? 'Congratulations!' : 'Try again!'}`;
-}
-
-// Function to reset previous ticks and crosses
-function resetQuizUI() {
-  var tickCrossElements = document.querySelectorAll('.guess-container span');
-  tickCrossElements.forEach(function (element) {
-    element.remove();
-  });
 }
 
 function toggleChartHeader() {
