@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Who is Winning</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v5.min.js"></script> <!-- Add D3.js library -->
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <h1>Who's Winning?</h1>
+
+    <p>""USA this", "China that" - the news is covered with journalists comparing countries, but do you know which countries are actually winning? What does ‘winning’ even mean?</p>
+
+    <p>The truth is, there isn’t a straightforward answer to which country is ‘winning’ because there are all sorts of metrics you can compare them by: how much money they make, how happy their population is etc. That’s why we’ve developed this tool, which allows you to see the top 10 countries that are winning for a specific metric.</p>
+
+    <p>But we’re gonna make you work for it! To stop you from saying “well, everyone knows that” when you get the answers, you’ll have to play a quiz first to test your knowledge. First, select the metrics you want to look at. </p>
+
+     <div class="variable-dropdown">
+        <label for="yVariableSelect">Select Metric:</label>
+        <select id="yVariableSelect" onchange="updateChart()">
+            <option value="trade_balance" selected>Trade Balance (% of GDP)</option>
+            <option value="government_revenue">Government Revenue (% of GDP)</option>
+            <option value="GDP_per_capita">GDP per Capita (USD)</option>
+            <option value="military_expenditure">Military Expenditure (in mill USD)</option>
+            <option value="tourist_arrivals" selected>International Tourist Arrivals</option>
+            <option value="dog_ownership">Dog Ownership</option>
+            <option value="cat_ownership">Cat Ownership</option>
+            <option value="movie_production">Number of Movies Produced</option>
+            <option value="box_office_numbers" selected>Global Box Office (in USD)</option>
+            <option value="air_quality">Air Quality</option>
+            <option value="happiness">Happiness Score</option>
+            <option value="life_expectancy">Life Expectancy at Birth</option>
+            <option value="mean_years_of_schooling" selected>Mean Years of Schooling</option>
+            <option value="income_per_capita">Income per Capita</option>
+            <option value="gender_inequality">Gender Inequality Index</option>
+            <option value="forest_area">Forest Area (Sq. km)</option>
+            <option value="renewables">Renewables (% of Electricity)</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
+
+    <p>Now the test! For your selected metric, which 5 countries do you think make it to the top 10 out of all the countries in the world? We’ll tell you which ones you got right/wrong, and you can keep guessing until you’re satisfied with your answers. Once you’re tired of playing, click ‘Skip to the results’ to find out the right answers.</p>
+
+    <div class="quiz-container">
+        <h3>Quiz: Select 5 countries you think will be in the top 10</h3>
+        <div class="guess-container">
+            <div class="guess">
+                Guess 1: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 2: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 3: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 4: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+            <div class="guess">
+                Guess 5: <select class="quiz-select">
+                    <option value="">Select a country</option>
+                    <!-- Sample options, replace with actual data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <option value="country3">Country 3</option>
+                </select>
+            </div>
+        </div>
+        <div>
+
+        <div class="button-container">
+            <button class="button-1" onclick="checkQuiz()">Check Quiz</button>
+            <button class="button-2" onclick="skipToResults()">Skip to  Results</button>
+        </div>
+            <p id="quiz-result"></p>
+        </div>
+    </div>
+
+    <h2 id="chart-header">'Top 10 Countries - GDP per capita (USD)'</h2>
+    <div id="chart-container"></div>
+
+    <br>
+    </div>
+    <br>
+    </div>
+    <div id="map-container"></div>
+    <div class="tooltip" style="opacity:0;"></div>
+    <script src="map.js"></script>
+
+<button id="refreshButton" onclick="refreshPage()">Again! Again!</button>
+
+</body>
+
+    <a href='../index.html'>Home</a>
+
+    <a href='https://forms.office.com/Pages/ResponsePage.aspx?id=9CL6b2hFBUGtQy461HJpV6PAlu8QsDNDvFA_VHvxVJZURDdTTlFUOTFZSTBDMEg0VFVDNjlGRUFYRC4u'target="_blank">Want to give feedback? Click here</a>
+    
+</html>
