@@ -11,8 +11,17 @@ function updateChart() {
   var selectElement = document.getElementById('yVariableSelect');
   yVariable = selectElement.value;
 
-  // Change the header text based on the selected variable
-  document.getElementById('chart-header').innerText = 'Top 10 Countries - ' + yVariable;
+  // Customize the header text based on the selected variable
+  var chartHeader = document.getElementById('chart-header');
+  var chartSubheader = document.getElementById('chart-subheader');
+
+  if (yVariable === 'trade_balance') {
+    chartHeader.innerText = 'Top 10 Countries by Trade Balance';
+    chartSubheader.innerText = 'According to data from xxx';
+  } else if (yVariable === 'government_revenue') {
+    chartHeader.innerText = 'Top 10 Countries by Government Revenue as a % of GDP';
+    chartSubheader.innerText = 'According to data from xxx';
+  }
 
   // Load CSV file and create a horizontal bar chart with the top 10
   d3.csv('whoiswinning.csv').then(function (csvData) {
@@ -40,6 +49,7 @@ function updateChart() {
 
       var svg = d3.select('#chart-container').html('') // Clear existing content
         .append('svg')
+        .attr('class', 'chart-svg') // Add a class to the SVG element  
         .attr('width', width + margin.left + margin.right)
         .attr('height', height + margin.top + margin.bottom)
         .append('g')
@@ -96,6 +106,9 @@ function updateChart() {
     } catch (error) {
       console.log(error);
     }
+  }).then(function() {
+    // Call checkQuiz after data is loaded
+    checkQuiz();
   });
 }
 
@@ -225,9 +238,19 @@ function resetQuizUI() {
   });
 }
 
+function toggleChartHeader() {
+  var chartHeaderContainer = document.getElementById('chart-header-container');
+  if (chartHeaderContainer.style.display === 'none') {
+    chartHeaderContainer.style.display = 'block';
+  } else {
+    chartHeaderContainer.style.display = 'none';
+  }
+}
+
+
 // Function to show results and scroll to the chart
 function skipToResults() {
-  var chartContainer = document.getElementById("chart-container");
+  var chartContainer = document.getElementById("chart-container-wrapper");
   var mapContainer = document.getElementById("map-container");
   var additionalParagraphs = document.querySelectorAll("#quiz-result ~ p");
 
@@ -240,6 +263,7 @@ function skipToResults() {
     additionalParagraphs.forEach(function (paragraph) {
       paragraph.style.display = "block";
     });
+
 
     // Scroll to the chart
     chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });

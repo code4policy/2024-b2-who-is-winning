@@ -100,14 +100,22 @@
 
         <div class="button-container">
             <button class="button-1" onclick="checkQuiz()">Check Quiz</button>
-            <button class="button-2" onclick="skipToResults()">Skip to  Results</button>
+            <button class="button-2" onclick="skipToResults()">Skip to Results</button>
+
         </div>
             <p id="quiz-result"></p>
         </div>
     </div>
 
-    <h2 id="chart-header">'Top 10 Countries - GDP per capita (USD)'</h2>
-    <div id="chart-container"></div>
+
+    <div id="chart-container-wrapper">
+        <div id="chart-header-container">
+          <div id="chart-header"></div>
+          <div id="chart-subheader"></div>
+        </div>
+
+        <div id="chart-container"></div>
+    </div>
 
     <br>
     </div>
@@ -116,13 +124,14 @@
     <div id="map-container"></div>
     <div class="tooltip" style="opacity:0;"></div>
     <script src="map.js"></script>
+    <script src="main.js" defer></script>
 
 <button id="refreshButton" onclick="refreshPage()">Again! Again!</button>
-
-</body>
 
     <a href='../index.html'>Home</a>
 
     <a href='https://forms.office.com/Pages/ResponsePage.aspx?id=9CL6b2hFBUGtQy461HJpV6PAlu8QsDNDvFA_VHvxVJZURDdTTlFUOTFZSTBDMEg0VFVDNjlGRUFYRC4u'target="_blank">Want to give feedback? Click here</a>
-    
+
+</body>
+
 </html>

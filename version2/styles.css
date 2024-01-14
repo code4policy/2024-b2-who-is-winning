@@ -56,18 +56,27 @@ select#yVariableSelect {
   margin-top: 10px; /* Adjust margin as needed */
 }
 
-#chart-header {
-  display:none;
+#chart-container-wrapper {
+  display: none;
 }
 
 #chart-container {
   font-family: 'Lato', sans-serif;
-  display: none;
+/*  display: none;*/
   justify-content: center;
   align-items: center;
   margin-top: 20px; /* Adjust as needed */
   font-size: 12px;
   font-family: 'Lato', sans-serif;
+}
+
+/* Add a new class for the chart SVG element */
+.chart-svg {
+  /* Adjust width and height as needed */
+  width: auto; /* Use a percentage to make it responsive or set a fixed width */
+  height: auto; /* Allow the height to adjust automatically */
+  text-align: center;
+  align-items: center;
 }
 
 .bar {
@@ -192,7 +201,7 @@ select#yVariableSelect {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 960px;
+    width: 2000px;
     margin: auto;
 }
 
