@@ -43,7 +43,7 @@ function updateChart() {
       console.log('Sorted Data:', top10Data); // Log top 10 data
 
       // Create a horizontal bar chart
-      var margin = { top: 20, right: 20, bottom: 30, left: 120 }, // Increase left margin to accommodate labels
+      var margin = { top: 20, right: 20, bottom: 30, left: 150 }, // Increase left margin to accommodate labels
         width = 900 - margin.left - margin.right, // Adjusted width
         height = 400 - margin.top - margin.bottom;
 
