@@ -1,59 +1,100 @@
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    padding: 20px;
+    background-color: #FFFFFF; /* White background */
+    color: #264653;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+h1 {
     text-align: center;
+    color: #264653;
 }
 
-main {
-    padding: 1rem;
+.accordion {
+    margin: auto;
+    max-width: 800px;
+    background-color: #FFFFFF; /* White background for accordion */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 0;
+    border-radius: 8px;
 }
 
-h2 {
-    color: #333;
+.accordion-item {
+    background: #FFFFFF; /* White background for accordion item */
+    color: #264653;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #2A9D8F;
 }
 
-section {
-    margin-bottom: 1rem;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 0.5rem 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-button {
-    background-color: #008cba;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
+.accordion-button {
+    background: #264653;
+    color: #FFFFFF;
     cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background 0.3s ease;
 }
 
-button:hover {
-    background-color: #45a049;
+.accordion-button:hover {
+    background: #2A9D8F;
+    color: #FFFFFF;
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+}
+
+.variable-item {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.variable-button {
+    background: #E9C46A;
+    color: #264653;
+    cursor: pointer;
+    padding: 10px 18px;
+    width: calc(100% - 36px);
+    text-align: left;
+    border: 1px solid #F4A261;
+    outline: none;
+    transition: background 0.3s ease;
+    margin: 10px 0;
+    display: block;
+}
+
+.variable-button:hover {
+    background: #F4A261;
+    color: #FFFFFF;
+}
+
+.variable-content {
+    background: #FFFFFF; /* White background for variable content */
+    display: none;
+    padding: 10px 18px;
+    border-left: 1px solid #E9C46A;
+    border-right: 1px solid #E9C46A;
+    border-bottom: 1px solid #E9C46A;
+}
+
+.plus {
+    float: right;
+    font-size: 1.5em;
+    line-height: 0.5em;
+    color: #264653;
 }
 
 a {
-    color: #008cba;
+    color: #E76F51;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #45a049;
+    text-decoration: underline;
 }
