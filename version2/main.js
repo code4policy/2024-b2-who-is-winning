@@ -210,17 +210,44 @@ function resetQuizUI() {
 // Function to show results and scroll to the chart
 function skipToResults() {
   var chartContainer = document.getElementById("chart-container");
+  var mapContainer = document.getElementById("map-container");
+  var additionalParagraphs = document.querySelectorAll("#quiz-result ~ p");
 
   // Toggle visibility by changing the display property
   if (chartContainer.style.display === "none" || chartContainer.style.display === "") {
     chartContainer.style.display = "block";
+    mapContainer.style.display = "block";
+    
+    // Show additional paragraphs
+    additionalParagraphs.forEach(function (paragraph) {
+      paragraph.style.display = "block";
+    });
     
     // Scroll to the chart
     chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } else {
     chartContainer.style.display = "none";
+
+    // Hide additional paragraphs
+    additionalParagraphs.forEach(function (paragraph) {
+      paragraph.style.display = "none";
+    });
   }
 }
 
 // Initial load of the chart and quiz options
 updateChart();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const selectElement = document.getElementById('indicator-select');
+
+    d3.csv('whoiswinning.csv').then(data => {
+        const indicators = data.columns.slice(1); // Skip the first column ('country')
+        indicators.forEach(indicator => {
+            const option = document.createElement('option');
+            option.value = indicator;
+            option.textContent = indicator;
+            selectElement.appendChild(option);
+        });
+    });
+});
