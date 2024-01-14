@@ -118,50 +118,52 @@ function loadMap() {
 
 // Function to add a legend to the map
 function addLegend(svg, colorScale) {
-  // Define dimensions and position for the legend
-  const legendWidth = 900;
-  const legendHeight = 20;
-  const legendMargin = { top: 30, right: 30, bottom: 30, left: 30 };
-  const legendX = (960 - legendWidth) / 2; // Center the legend horizontally
-  const legendY = 570 - legendHeight - legendMargin.bottom; // Position legend at the bottom
+    // Define dimensions and position for the legend
+    const legendWidth = 900;
+    const legendHeight = 20;
+    const legendMargin = { top: 30, right: 30, bottom: 30, left: 30 };
+    const legendX = (960 - legendWidth) / 2; // Center the legend horizontally
+    const legendY = 570 - legendHeight - legendMargin.bottom; // Position legend at the bottom
+
+    // Create a group element for the legend
+    const legend = svg.append("g")
+        .attr("id", "legend")
+        .attr("transform", "translate(" + legendX + "," + legendY + ")");
+
+        const gradient = legend.append("defs").append("linearGradient")
+        .attr("id", "gradient")
+        .selectAll("stop")
+        .data(colorScale.range().map(function(color, i) {
+            return {
+                offset: i / (colorScale.range().length - 1),
+                color: color
+            };
+        }))
+        .enter().append("stop")
+        .attr("offset", function(d) { return d.offset; })
+        .attr("stop-color", function(d) { return d.color; });
 
 
-  // Create a group element for the legend
-  const legend = svg.append("g")
-      .attr("id", "legend")
-      .attr("transform", "translate(" + legendX + "," + legendY + ")");
+    // Draw the legend's colored rectangle
+    legend.append("rect")
+        .attr("width", legendWidth)
+        .attr("height", legendHeight)
+        .style("fill", "url(#gradient)");
 
-  // Create a scale for the legend's x-axis
-  const xScale = d3.scaleLinear()
-      .domain(colorScale.domain())
-      .range([0, legendWidth]);
+    // Create a scale for the legend's x-axis based on the color scale domain
+    const xScale = d3.scaleLinear()
+        .domain(colorScale.domain())
+        .range([0, legendWidth]);
 
-  // Define the number of gradient stops and create the gradient
-  const numStops = 2.5;
-  const gradient = legend.append("defs").append("linearGradient")
-      .attr("id", "gradient")
-      .selectAll("stop")
-      .data(d3.range(numStops))
-      .enter().append("stop")
-      .attr("offset", (d, i) => i / (numStops - 1))
-      .attr("stop-color", d => colorScale(xScale.invert(d * legendWidth)));
+    // Add an axis to the legend
+    const axis = d3.axisBottom(xScale)
+        .ticks(5); // Adjust number of ticks based on your preference
 
-  // Draw the legend's colored rectangle
-  legend.append("rect")
-      .attr("width", legendWidth)
-      .attr("height", legendHeight)
-      .style("fill", "url(#gradient)");
-
-  // Add an axis to the legend
-  const axis = d3.axisBottom(xScale)
-      .ticks(5); // Adjust number of ticks based on your preference
-
-  legend.append("g")
-      .attr("transform", "translate(0," + legendHeight + ")")
-      .call(axis);
-
-  // Add a label for countries with no data
-  legend.append("text")
+    legend.append("g")
+        .attr("transform", "translate(0," + legendHeight + ")")
+        .call(axis);
+    
+    legend.append("text")
       .attr("x", 0)
       .attr("y", legendHeight + 40)
       .text("Note: Countries with black-fill do not have data available on the selected indicator")
