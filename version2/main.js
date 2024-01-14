@@ -104,7 +104,7 @@ function updateQuizOptions(data) {
     if (quizSelect) {
       quizSelect.innerHTML = '';
 
-        // Add a default option
+      // Add a default option
       var defaultOption = document.createElement('option');
       defaultOption.value = '';
       defaultOption.text = 'Select here';
@@ -175,12 +175,12 @@ function checkQuiz() {
   // Get the correct answers based on the selected variable
   var correctAnswers = getTop10Countries(data, yVariable);
 
-    // Update the UI with ticks or crosses based on correctness
+  // Update the UI with ticks or crosses based on correctness
   quizSelects.forEach(function (quizSelect, index) {
     var option = quizSelect.options[quizSelect.selectedIndex];
     var isCorrect = correctAnswers.includes(option.value);
     var icon = isCorrect ? '✔' : '❌';
-    
+
     // Add the tick or cross icon to the guess container
     var guessContainer = document.querySelector('.guess-container');
     guessContainer.children[index].innerHTML += ` <span class="${isCorrect ? 'correct' : 'incorrect'}">${icon}</span>`;
@@ -217,12 +217,12 @@ function skipToResults() {
   if (chartContainer.style.display === "none" || chartContainer.style.display === "") {
     chartContainer.style.display = "block";
     mapContainer.style.display = "block";
-    
+
     // Show additional paragraphs
     additionalParagraphs.forEach(function (paragraph) {
       paragraph.style.display = "block";
     });
-    
+
     // Scroll to the chart
     chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } else {
@@ -239,15 +239,15 @@ function skipToResults() {
 updateChart();
 
 document.addEventListener('DOMContentLoaded', function() {
-    const selectElement = document.getElementById('indicator-select');
+  const selectElement = document.getElementById('indicator-select');
 
-    d3.csv('whoiswinning.csv').then(data => {
-        const indicators = data.columns.slice(1); // Skip the first column ('country')
-        indicators.forEach(indicator => {
-            const option = document.createElement('option');
-            option.value = indicator;
-            option.textContent = indicator;
-            selectElement.appendChild(option);
-        });
+  d3.csv('whoiswinning.csv').then(data => {
+    const indicators = data.columns.slice(1); // Skip the first column ('country')
+    indicators.forEach(indicator => {
+      const option = document.createElement('option');
+      option.value = indicator;
+      option.textContent = indicator;
+      selectElement.appendChild(option);
     });
+  });
 });
