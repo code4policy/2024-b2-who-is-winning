@@ -35,17 +35,24 @@ h2,h3 {
 /* styles for paragraph */
 p {
     color: black;
+    text-align: justify;
 }
 
 select#yVariableSelect {
+  font-family: 'Lato', sans-serif;
   width: auto; /* Set a specific width */
   padding: 5px; /* Add padding for better visibility and clickability */
   font-size: 12px; /* Adjust font size */
   margin-top: 10px; /* Adjust margin as needed */
 }
 
+#chart-header {
+  display:none;
+}
+
 #chart-container {
-  display: flex;
+  font-family: 'Lato', sans-serif;
+  display: none;
   justify-content: center;
   align-items: center;
   margin-top: 20px; /* Adjust as needed */
@@ -57,8 +64,71 @@ select#yVariableSelect {
   fill: #264653; /* Set the fill color using CSS */
 }
 
+/* Container for buttons */
+.button-container {
+  display: flex;
+  justify-content: center; /* Adjust as needed */
+  margin-top: 10px;
+  display:flex;
+  gap:10px;
+}
+
+.button-53 {
+  margin:0;
+  margin-top: 10px;
+  background-color: #E76F51;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 150px;
+  max-width: none;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-53:focus {
+  outline: 0;
+}
+
+.button-53:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+.button-53:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-53 {
+    padding: .25rem .15rem;
+    font-size: 1.0rem;
+  }
+}
 /* Container for guess options */
 #quiz-container {
+  font-family: 'Lato', sans-serif;
   display: flex;
   flex-wrap: wrap; /* Enable wrapping to the next line if needed */
   justify-content: space-around; /* Adjust as needed */
@@ -67,37 +137,52 @@ select#yVariableSelect {
 
 /* Individual guess option box */
 #quiz-container > div {
+  font-family: 'Lato', sans-serif;
   flex: 0 0 30%; /* Set a fixed width for each box (adjust as needed) */
   margin: 10px; /* Adjust margin as needed */
   padding: 10px;
   border: 2px solid #E76F51;
   background-color: #F4A261;
+  text-align: center;
 }
 
 /* Header for each guess option box */
 #quiz-container > div h3 {
+  font-family: 'Lato', sans-serif;
   color: black;
   font-size: 16px; /* Adjust font size */
+  text-align: center;
 }
 
 /* Styles for the select dropdown within each box */
 #quiz-container .quiz-select {
+  font-family: 'Lato', sans-serif;
   height: 50px;
   width: 75%; /* Take full width of the box */
   margin-top: 5px; /* Adjust margin as needed */
+  text-align: center;
 }
 
+/* Center text in quiz options */
+#quiz-container .quiz-select option {
+  text-align: center;
+}
+
+
 #chart-container svg .axis text {
+  font-family: 'Lato', sans-serif;
   font-size: 20px; /* Set font size for axis text using CSS */
 
 }
 
 .image-class {
+  font-family: 'Lato', sans-serif;
   max-width: 20%; /* Adjust the width as needed */
   height: auto; /* Maintain the aspect ratio */
 }
 
 #content {
+    font-family: 'Lato', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
