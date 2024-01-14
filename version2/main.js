@@ -207,13 +207,16 @@ function resetQuizUI() {
   });
 }
 
-// Function to show results
+// Function to show results and scroll to the chart
 function skipToResults() {
   var chartContainer = document.getElementById("chart-container");
 
   // Toggle visibility by changing the display property
   if (chartContainer.style.display === "none" || chartContainer.style.display === "") {
     chartContainer.style.display = "block";
+    
+    // Scroll to the chart
+    chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } else {
     chartContainer.style.display = "none";
   }
