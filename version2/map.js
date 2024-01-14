@@ -15,100 +15,101 @@ function getColor(d, csvData, selectedOption, colorScale) {
 
 // Wrap the map-related code in a function
 function loadMap() {
+  // Remove existing map content
+  d3.select("#map-container").selectAll("*").remove();
 
-// Load the GeoJSON data
-d3.json('countries.geojson').then(function(geojsonData) {
+  // Load the GeoJSON data
+  d3.json('countries.geojson').then(function(geojsonData) {
 
     // Load the CSV data
     d3.csv('whoiswinning.csv').then(function(csvData) {
 
-        // Define your color scale here
-        var initialOption = 'GDP per Capita (in USD)'; // Initialize with a default indicator
-        var colorScale = d3.scaleLinear(); // Initialize color scale
+      // Define your color scale here
+      var colorScale = d3.scaleLinear(); // Initialize color scale
 
-        function updateColorScale(selectedOption) {
-            const minValue = d3.min(csvData, d => parseFloat(d[selectedOption]));
-            const maxValue = d3.max(csvData, d => parseFloat(d[selectedOption]));
-            colorScale.domain([minValue, maxValue]).range(["lightblue", "darkblue"]);
-        }
+      function updateColorScale(selectedOption) {
+        const minValue = d3.min(csvData, d => parseFloat(d[selectedOption]));
+        const maxValue = d3.max(csvData, d => parseFloat(d[selectedOption]));
+        colorScale.domain([minValue, maxValue]).range(["lightblue", "darkblue"]);
+      }
 
-        updateColorScale(initialOption); // Update color scale with initial indicator
+      // Initial update of color scale with default indicator
+      updateColorScale(yVariable);
 
-        // Create the SVG element for the map with white background
-        const svg = d3.select("#map-container").append("svg")
-            .attr("width", 960)
-            .attr("height", 600)
-            .style("background-color", "white"); // Set background color to white
+      // Create the SVG element for the map with a white background
+      const svg = d3.select("#map-container").append("svg")
+          .attr("width", 960)
+          .attr("height", 600)
+          .style("background-color", "white"); // Set background color to white
 
-        // Define a projection and path generator
-        const projection = d3.geoNaturalEarth1()
-            .scale(153)
-            .translate([480, 300]);
-        const path = d3.geoPath().projection(projection);
+      // Define a projection and path generator
+      const projection = d3.geoNaturalEarth1()
+          .scale(153)
+          .translate([480, 300]);
+      const path = d3.geoPath().projection(projection);
 
-        // Draw the map
-        var countries = svg.selectAll("path")
-            .data(geojsonData.features)
-            .enter().append("path")
-            .attr("d", path)
-            .attr("fill", d => getColor(d, csvData, initialOption, colorScale))
-            .attr("stroke", "black") // Set country borders to black
-            .attr("stroke-width", 0.2); // Set border width to 0.2 pixels
+      // Draw the map
+      var countries = svg.selectAll("path")
+          .data(geojsonData.features)
+          .enter().append("path")
+          .attr("d", path)
+          .attr("fill", d => getColor(d, csvData, yVariable, colorScale))
+          .attr("stroke", "black") // Set country borders to black
+          .attr("stroke-width", 0.2); // Set border width to 0.2 pixels
 
-        // Create a tooltip. This tooltip will display the country's name, the selected indicator, and its value.
-        var tooltip = d3.select("body").append("div") 
-            .attr("class", "tooltip")       
-            .style("opacity", 0);
+      // Create a tooltip. This tooltip will display the country's name, the selected indicator, and its value.
+      var tooltip = d3.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("opacity", 0);
 
-        // Function to update tooltip content
-        function updateTooltipContent(d, selectedOption) {
-            var indicatorValue = getData(d.properties.ADMIN, csvData, selectedOption);
-            return d.properties.ADMIN + "<br/>" + selectedOption + ": " + indicatorValue;
-        }
+      // Function to update tooltip content
+      function updateTooltipContent(d, selectedOption) {
+          var indicatorValue = getData(d.properties.ADMIN, csvData, selectedOption);
+          return d.properties.ADMIN + "<br/>" + selectedOption + ": " + indicatorValue;
+      }
 
-        // Add event listeners for mouseover and mouseout
-        countries.on("mouseover", function(d) {
-            tooltip.transition()        
-                .duration(200)      
-                .style("opacity", .9);      
-            tooltip.html(updateTooltipContent(d, initialOption))
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");
-        })                  
-        .on("mouseout", function(d) {       
-            tooltip.transition()        
-                .duration(500)      
-                .style("opacity", 0);   
-        });
+      // Add event listeners for mouseover and mouseout
+      countries.on("mouseover", function(d) {
+          tooltip.transition()
+              .duration(200)
+              .style("opacity", .9);
+          tooltip.html(updateTooltipContent(d, yVariable))
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+              .duration(500)
+              .style("opacity", 0);
+      });
 
-        // Listen to changes in the dropdown
-        d3.select('select').on('change', function() {
-            var selectedOption = d3.select(this).property('value');
-            updateColorScale(selectedOption); // Update color scale with new indicator
+      // Listen to changes in the dropdown
+      d3.select('select').on('change', function() {
+          yVariable = d3.select(this).property('value');
+          updateColorScale(yVariable); // Update color scale with new indicator
 
-            // Update the map colors based on the selected option
-            countries.transition()  // Optional: smooth transition for color change
-                .duration(500) // Transition duration in milliseconds
-                .attr("fill", d => getColor(d, csvData, selectedOption, colorScale));
+          // Update the map colors based on the selected option
+          countries.transition()  // Optional: smooth transition for color change
+              .duration(500) // Transition duration in milliseconds
+              .attr("fill", d => getColor(d, csvData, yVariable, colorScale));
 
-            // Update tooltip content on indicator change
-            countries.on("mouseover", function(d) {
-                tooltip.transition()        
-                    .duration(200)      
-                    .style("opacity", .9);      
-                tooltip.html(updateTooltipContent(d, selectedOption))
-                    .style("left", (d3.event.pageX) + "px")     
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })                  
-            .on("mouseout", function(d) {       
-                tooltip.transition()        
-                    .duration(500)      
-                    .style("opacity", 0);   
-            });
-        });
+          // Update tooltip content on indicator change
+          countries.on("mouseover", function(d) {
+              tooltip.transition()
+                  .duration(200)
+                  .style("opacity", .9);
+              tooltip.html(updateTooltipContent(d, yVariable))
+                  .style("left", (d3.event.pageX) + "px")
+                  .style("top", (d3.event.pageY - 28) + "px");
+          })
+          .on("mouseout", function(d) {
+              tooltip.transition()
+                  .duration(500)
+                  .style("opacity", 0);
+          });
+      });
     });
-});
-
+  });
 }
 
 // Call loadMap when "Skip to Results" is clicked
