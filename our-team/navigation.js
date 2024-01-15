@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var navItems = [
         { name: 'Return Home', path: '../index.html' },
         { name: 'Data Sources', path: 'data-source/index.html' },
-        { name: 'Give us Feedback', path: 'https://forms.office.com/Pages/ResponsePage.aspx?id=9CL6b2hFBUGtQy461HJpV6PAlu8QsDNDvFA_VHvxVJZURDdTTlFUOTFZSTBDMEg0VFVDNjlGRUFYRC4u' },
-        { name: 'Do Not Click!!, path: 'Chenged/index.html', class: 'special-link' } // Add a unique class for 'Do Not Click'
+        { name: 'Give us Feedback', path: 'https://forms.office.com/Pages/ResponsePage.aspx?id=9CL6b2hFBUGtQy461HJpV6PAlu8QsDNDvFA_VHvxVJZURDdTTlFUOTFZSTBDMEg0VFVDNjlGRUFYRC4u', target: '_blank' },
+        { name: 'Do Not Click!!', path:'Chenged/index.html', class: 'special-link' } // Add a unique class for 'Do Not Click'
     ];
 
     navItems.forEach(function(item) {

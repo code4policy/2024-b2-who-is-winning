@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Return Home Sheepishly', path: '../index.html' },
         { name: 'Our Team', path: 'our-team/index.html' },
         { name: 'Data Sources', path: 'data-source/index.html' },
-        { name: 'Give us Feedback', path: 'https://forms.office.com/Pages/ResponsePage.aspx?id=9CL6b2hFBUGtQy461HJpV6PAlu8QsDNDvFA_VHvxVJZURDdTTlFUOTFZSTBDMEg0VFVDNjlGRUFYRC4u' },
+        { name: 'Give us Feedback', path: 'https://forms.office.com/Pages/ResponsePage.aspx?id=9CL6b2hFBUGtQy461HJpV6PAlu8QsDNDvFA_VHvxVJZURDdTTlFUOTFZSTBDMEg0VFVDNjlGRUFYRC4u', target: '_blank' },
     ];
 
     navItems.forEach(function(item) {
