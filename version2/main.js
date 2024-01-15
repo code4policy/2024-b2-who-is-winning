@@ -303,6 +303,7 @@ function skipToResults() {
   var chartContainer = document.getElementById("chart-container-wrapper");
   var mapContainer = document.getElementById("map-container");
   var mapHeader = document.getElementById("map-header");
+  var refreshButton = document.getElementById("refreshButton");
   var additionalParagraphs = document.querySelectorAll("#quiz-result ~ p");
 
   // Toggle visibility by changing the display property
@@ -318,6 +319,8 @@ function skipToResults() {
     // Show the h3 element
     mapHeader.style.display = "block";
 
+    // Show the refresh button
+    refreshButton.style.display = "block";
 
     // Scroll to the chart
     chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -331,6 +334,9 @@ function skipToResults() {
 
     // Hide the h3 element
     mapHeader.style.display = "none";
+
+    // Hide the refresh button
+    refreshButton.style.display = "none";
 
   }
 }
