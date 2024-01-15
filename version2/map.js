@@ -10,7 +10,7 @@ function getData(countryName, csvData, selectedOption) {
 function getColor(d, csvData, selectedOption, colorScale) {
     const dataValue = getData(d.properties.ADMIN, csvData, selectedOption);
     if (dataValue === null) {
-        return 'black'; // Color for countries with no data
+        return 'grey'; // Color for countries with no data
     }
     return colorScale(dataValue); // Use a color scale for data values
 }
@@ -41,12 +41,12 @@ function loadMap() {
             // Create the SVG element for the map with a white background
             const svg = d3.select("#map-container").append("svg")
                 .attr("width", 960)
-                .attr("height", 600)
-                .style("background-color", "white"); // Set background color to white
+                .attr("height", 610)
+                .style("background-color", "#E9c46a"); // Set background color to white
 
             // Define a projection and path generator
             const projection = d3.geoNaturalEarth1()
-                .scale(153)
+                .scale(170)
                 .translate([480, 300]);
             const path = d3.geoPath().projection(projection);
 
@@ -121,11 +121,11 @@ function loadMap() {
 // Function to add a legend to the map
 function addLegend(svg, colorScale) {
     // Define dimensions and position for the legend
-    const legendWidth = 900;
-    const legendHeight = 20;
+    const legendWidth = 800;
+    const legendHeight = 15;
     const legendMargin = { top: 30, right: 30, bottom: 30, left: 30 };
     const legendX = (960 - legendWidth) / 2; // Center the legend horizontally
-    const legendY = 570 - legendHeight - legendMargin.bottom; // Position legend at the bottom
+    const legendY = 590 - legendHeight - legendMargin.bottom; // Position legend at the bottom
 
     // Create a group element for the legend
     const legend = svg.append("g")
@@ -167,8 +167,8 @@ function addLegend(svg, colorScale) {
     
     legend.append("text")
       .attr("x", 0)
-      .attr("y", legendHeight + 40)
-      .text("Note: Countries with black-fill do not have data available on the selected indicator")
+      .attr("y", legendHeight + 30)
+      .text("Note: Countries with grey-fill do not have data available on the selected indicator")
       .style("fill", "black");
 }
 
