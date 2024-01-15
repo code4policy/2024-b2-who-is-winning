@@ -16,8 +16,14 @@
     <h1>Glossary & Data Source</h1>
 
         <p class="introduction-paragraph">
-        In our geoplotics game, we focus on 12 key variables that define a country's influence, neatly divided into Hard Power and Soft Power. <br> <br> Hard Power encompasses the measurable might of a nation: economic power, military strength, and state capabilities proxied by government revenue. Soft Power, on the other hand, captures cultural influence and global perceptions. Incorporating fun variables such as pet ownership and box office into Soft Power assessments adds a dimension that reflects a nation's lifestyle and societal quirks. These variables, often overlooked, can significantly influence global perceptions and cultural appeal. <br> <br> As the world changes, so will our analysis. We're committed to regularly updating and adding new variables, ensuring our insights stay sharp and relevant.
+        In our geopolitics game, we focus on 12 key variables that define a country's influence. Influence can consist of both hard and soft power, so we have decided to include metrics from both categories. <br> <br> Hard Power encompasses the measurable might of a nation: economic power, military strength, and state capabilities proxied by government revenue. Soft Power, on the other hand, captures cultural influence and global perceptions. Incorporating fun variables such as pet ownership and box office into Soft Power assessments adds a dimension that reflects a nation's lifestyle and societal quirks. These variables, often overlooked, can significantly influence global perceptions and cultural appeal. <br> <br> These variables are defined at the end of the page, alongside the data for the sources.
     </p>
+
+    <p class="introduction-paragraph">We also want to give credit to the technology that helped us create this website. The world map on the main page was created using a GeoJSON file downloaded from <a href="https://datahub.io/core/geo-countries" target="_blank">DataHub.io</a>. Last retrieved on January 14, 2024.</p>
+
+    <p class="introduction-paragraph">The website was also created with the help of ChatGPT, to generate the code required for its functionality. As an example, when creating this page, we used the following prompt, then tweaked the outputs according to our needs: <span class="prompt-quote">Please generate the content and webpage files (html, css, js) for a variety of variables. In terms of content, I want to classify these variables into hard power and soft power, and under each rubric, list the variables and detail the data source, data description and source link. In terms of style, I want to be able to fold and unfold each part so that the page is not too long. </span></p>
+
+    <p class="introduction-paragraph">Definitions: </p>
 
     <div class="accordion">
         <div class="accordion-item">
@@ -66,7 +72,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <button class="accordion-button">Soft Power/Fun Variables</button>
+            <button class="accordion-button">Soft Power + Fun Variables</button>
             <div class="accordion-content">
               <!-- First Variable -->
               <div class="variable-item">
@@ -149,13 +155,8 @@
                         <p><strong>Citation:</strong> Ritchie, Hannah, et al. “Renewable Energy.” Our World in Data, 2020, ourworldindata.org/renewable-energy.</p>
                     </div>
                 </div>
-    
-</div> 
-<div class="footer-note">
-    <p>The world map on the main page has been created using a GeoJSON file downloaded from <a href="https://datahub.io/core/geo-countries" target="_blank">DataHub.io</a>. Last retrieved on January 14, 2024.</p>
-
-    <p>The current page was also created with the help of ChatGPT, using the following prompt: <span class="prompt-quote">Please generate the content and webpage files (html, css, js) for a variety of variables. In terms of content, I want to classify these variables into hard power and soft power, and under each rubric, list the variables and detail the data source, data description and source link. In terms of style, I want to be able to fold and unfold each part so that the page is not too long.</span></p>
-</div>
+        </div>
+    </div>  
 
 <script src="script.js"></script>
 
