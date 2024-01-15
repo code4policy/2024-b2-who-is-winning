@@ -302,6 +302,7 @@ function toggleChartHeader() {
 function skipToResults() {
   var chartContainer = document.getElementById("chart-container-wrapper");
   var mapContainer = document.getElementById("map-container");
+  var mapHeader = document.getElementById("map-header");
   var additionalParagraphs = document.querySelectorAll("#quiz-result ~ p");
 
   // Toggle visibility by changing the display property
@@ -314,6 +315,9 @@ function skipToResults() {
       paragraph.style.display = "block";
     });
 
+    // Show the h3 element
+    mapHeader.style.display = "block";
+
 
     // Scroll to the chart
     chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -324,6 +328,10 @@ function skipToResults() {
     additionalParagraphs.forEach(function (paragraph) {
       paragraph.style.display = "none";
     });
+
+    // Hide the h3 element
+    mapHeader.style.display = "none";
+
   }
 }
 

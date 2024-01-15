@@ -232,6 +232,10 @@ select#yVariableSelect {
     justify-content: center;
 }
 
+#map-header {
+  display: none;
+}
+
 #map {
     width: 760px;
     height: 400px; /* Reduced height to 400px */
