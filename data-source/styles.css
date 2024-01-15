@@ -1,6 +1,26 @@
+/* styles.css */
+
+/* Set background */
+html {
+  background-color: #264653;
+}
+
+/* styles for the body of the site */
+body {
+  font-family: 'Lato', sans-serif;
+  width: 80%;
+  background-color: #E9C46A;
+  border: 10px solid #E76F51;
+  padding: 20px 20px 20px 20px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
     padding: 20px;
     background-color: #FFFFFF; /* White background */
@@ -10,6 +30,7 @@ body {
 h1 {
     text-align: center;
     color: #264653;
+    font-family: 'Lato';
 }
 
 .accordion {
@@ -19,6 +40,7 @@ h1 {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 0;
     border-radius: 8px;
+    font-family: 'Lato', sans-serif;
 }
 
 .accordion-item {
@@ -26,6 +48,7 @@ h1 {
     color: #264653;
     margin-bottom: 1em;
     border-bottom: 1px solid #2A9D8F;
+    font-family: 'Lato', sans-serif;
 }
 
 .accordion-button {
@@ -38,21 +61,25 @@ h1 {
     border: none;
     outline: none;
     transition: background 0.3s ease;
+    font-family: 'Lato', sans-serif;
 }
 
 .accordion-button:hover {
     background: #2A9D8F;
     color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
 }
 
 .accordion-content {
     display: none;
     padding: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
 .variable-item {
     padding-bottom: 15px;
     margin-bottom: 15px;
+    font-family: 'Lato', sans-serif;
 }
 
 .variable-button {
@@ -67,11 +94,13 @@ h1 {
     transition: background 0.3s ease;
     margin: 10px 0;
     display: block;
+    font-family: 'Lato', sans-serif;
 }
 
 .variable-button:hover {
     background: #F4A261;
     color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
 }
 
 .variable-content {
@@ -81,6 +110,7 @@ h1 {
     border-left: 1px solid #E9C46A;
     border-right: 1px solid #E9C46A;
     border-bottom: 1px solid #E9C46A;
+    font-family: 'Lato', sans-serif;
 }
 
 .plus {
@@ -88,6 +118,7 @@ h1 {
     font-size: 1.5em;
     line-height: 0.5em;
     color: #264653;
+    font-family: 'Lato', sans-serif;
 }
 
 a {
