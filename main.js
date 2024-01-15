@@ -17,43 +17,43 @@ function updateChart() {
 
   if (yVariable === 'trade_balance') {
     chartHeader.innerText = 'Top 10 Countries by Trade Balance (% of GDP)';
-    chartSubheader.innerText = 'According to data from IMF';
+    chartSubheader.innerText = 'Source: “World Economic Outlook Database.” IMF, www.imf.org/en/Publications/WEO/weo-database/2023/October. Accessed 15 Jan. 2024.';
   } else if (yVariable === 'government_revenue') {
     chartHeader.innerText = 'Top 10 Countries by Government Revenue (% of GDP)';
-    chartSubheader.innerText = 'According to data from IMF';
+    chartSubheader.innerText = 'Source: “World Economic Outlook Database.” IMF, www.imf.org/en/Publications/WEO/weo-database/2023/October. Accessed 15 Jan. 2024.';
     } else if (yVariable === 'GDP_per_Capita') {
     chartHeader.innerText = 'Top 10 Countries by GDP per capita (USD)';
-    chartSubheader.innerText = 'According to data from the World Bank';
+    chartSubheader.innerText = 'Source: World Bank. “GDP per Capita, PPP (Constant 2011 International $) | Data.” Worldbank.org, 2011, data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD.';
   } else if (yVariable === 'military_expenditure') {
-    chartHeader.innerText = 'Top 10 Countries by Military Expenditure (USD)';
-    chartSubheader.innerText = 'According to data from the World Bank';
+    chartHeader.innerText = 'Top 10 Countries by Military Expenditure (million USD)';
+    chartSubheader.innerText = 'Source: “World Bank, Military Expenditure (Current USD) | Data.” Worldbank.org, 2019, data.worldbank.org/indicator/MS.MIL.XPND.CD.';
   } else if (yVariable === 'tourist_arrivals') {
-    chartHeader.innerText = 'Top 10 Countries by Number of International Tourist Arrivals';
-    chartSubheader.innerText = 'According to data from World Population Review';
+    chartHeader.innerText = 'Top 10 Countries by Number of International Tourist Arrivals (000s)';
+    chartSubheader.innerText = 'Source: World Population Review. “Most Visited Countries 2020.” Worldpopulationreview.com, 2023, worldpopulationreview.com/country-rankings/most-visited-countries.';
   } else if (yVariable === 'dog_ownership') {
-    chartHeader.innerText = 'Top 10 Countries by Number of Dog Owners';
-    chartSubheader.innerText = 'According to data from World Population Review';
+    chartHeader.innerText = 'Top 10 Countries by Number of Dog Owners (000s)';
+    chartSubheader.innerText = 'Source: World Population Review. “Pet Ownership Statistics by Country 2022.” Worldpopulationreview.com, 2023, worldpopulationreview.com/country-rankings/pet-ownership-statistics-by-country.';
   } else if (yVariable === 'cat_ownership') {
-    chartHeader.innerText = 'Top 10 Countries by Number of Cat Owners';
-    chartSubheader.innerText = 'According to data from World Population Review';
+    chartHeader.innerText = 'Top 10 Countries by Number of Cat Owners (000s)';
+    chartSubheader.innerText = 'Source: World Population Review. “Pet Ownership Statistics by Country 2022.” Worldpopulationreview.com, 2023, worldpopulationreview.com/country-rankings/pet-ownership-statistics-by-country.';
   } else if (yVariable === 'box_office_numbers') {
-    chartHeader.innerText = 'Top 10 Countries by Box Office Sales (USD)';
-    chartSubheader.innerText = 'According to data from The Numbers';
+    chartHeader.innerText = 'Top 10 Countries by Box Office Sales (000s USD)';
+    chartSubheader.innerText = 'Source: “Movie Production Countries.” The Numbers, www.the-numbers.com/movies/production-countries/#tab=territory.';
   } else if (yVariable === 'happiness') {
     chartHeader.innerText = 'Top 10 Happiest Countries (Comparative Index)';
-    chartSubheader.innerText = 'According to data from the World Happiness Report 2023';
+    chartSubheader.innerText = 'Source: Helliwell, John F., et al. “World Happiness Report 2023.” Worldhappiness.report, 20 Mar. 2023, worldhappiness.report/ed/2023/#appendices-and-data.';
   } else if (yVariable === 'life_expectancy') {
     chartHeader.innerText = 'Top 10 Countries by Life Expectancy at Birth (Years)';
-    chartSubheader.innerText = 'According to data from the Human Development Report';
+    chartSubheader.innerText = 'Source: United Nations, 2021, hdr.undp.org/data-center/documentation-and-downloads.';
   } else if (yVariable === 'mean_years_of_schooling') {
     chartHeader.innerText = 'Top 10 Countries by Mean Years of Schooling';
-    chartSubheader.innerText = 'According to data from the Human Development Report';
+    chartSubheader.innerText = 'Source: United Nations, 2021, hdr.undp.org/data-center/documentation-and-downloads.';
   } else if (yVariable === 'forest_area') {
-    chartHeader.innerText = 'Top 10 Countries by Forest Area ';
-    chartSubheader.innerText = 'According to data from Our World in Data';
+    chartHeader.innerText = 'Top 10 Countries by Forest Area (000s sq. km)';
+    chartSubheader.innerText = 'Source: Ritchie, Hannah, and Max Roser. “Forest Area.” Our World in Data, 2021, ourworldindata.org/forest-area.';
   } else if (yVariable === 'renewables') {
     chartHeader.innerText = 'Top 10 Countries by Renewables (as a % of total electricity)';
-    chartSubheader.innerText = 'According to data from Our World in Data';
+    chartSubheader.innerText = 'Source: Ritchie, Hannah, et al. “Renewable Energy.” Our World in Data, 2020, ourworldindata.org/renewable-energy.';
   } else {
     // Add more conditions as needed
     // Default case
