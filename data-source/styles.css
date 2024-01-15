@@ -17,7 +17,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
-  text-align: center;
+  text-align: left;
 }
 
 body {
@@ -58,7 +58,7 @@ h1 {
     cursor: pointer;
     padding: 18px;
     width: 100%;
-    text-align: left;
+    text-align: center;
     border: none;
     outline: none;
     transition: background 0.3s ease;
@@ -131,35 +131,55 @@ a:hover {
     text-decoration: underline;
 }
 
-.navbar {
-    overflow: hidden;
-    background-color: #2A9D8F;
-    position: fixed; /* Fix the navbar to the top */
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 1000; /* Ensures the navbar stays on top of other elements */
+/* Specific styles for the introduction paragraph under "Glossary & Data Source" */
+.introduction-paragraph {
+    font-size: 18px; /* Increased font size */
+    line-height: 1.8; /* Increased line height for better readability */
+    font-weight: 400; /* Adjusting font weight */
+    padding: 10px 20px; /* Adding padding for better text wrapping */
+    margin-bottom: 20px; /* Adding margin to separate from the next section */
+    text-align: left; /* Align text to left for standard reading flow */
+    max-width: 800px; /* Limiting the width for better line length */
+    margin-left: auto; /* Centering the paragraph */
+    margin-right: auto; /* Centering the paragraph */
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 20px;
-    font-family: 'Lato';
-    text-decoration: none;
-    transition: color 0.3s;
+.footer-note {
+    font-size: 18px; /* Increased font size */
+    line-height: 1.8; /* Increased line height for better readability */
+    font-weight: 400; /* Adjusting font weight */
+    padding: 10px 20px; /* Adding padding for better text wrapping */
+    margin-bottom: 20px; /* Adding margin to separate from the next section */
+    text-align: left; /* Align text to left for standard reading flow */
+    max-width: 800px; /* Limiting the width for better line length */
+    margin-left: auto; /* Centering the paragraph */
+    margin-right: auto; /* Centering the paragraph */
 }
 
-.navbar a:hover {
+.footer-note .prompt-quote {
+    font-family: 'Courier New', monospace; /* Example: Change font */
+    font-size: 0.8em; /* Smaller font size */
+    border: 1px solid #ccc; /* Add a border for the frame */
+    padding: 10px; /* Add some padding inside the frame */
+    background-color: #f9f9f9; /* Light background for the frame */
+    display: inline-block; /* Ensures the styling is applied to the span */
+    margin-top: 10px; /* Space above the quote */
+}
+
+.main-page-button {
+    display: inline-block;
+    padding: 10px 20px;
     background-color: #264653;
     color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    margin: 10px 0; /* Add margin for spacing */
 }
 
-.navbar .special-link {
-    color: #ad1710; /* Change font color to red */
-    float: right; /* Position it to the right */
-    text-decoration: bold;
+.back-to-main-bottom {
+    text-align: center; /* Centers the button horizontally */
+    margin: 20px 0; /* Adds some space above and below the button */
 }
+
