@@ -59,8 +59,7 @@ select#yVariableSelect {
 
 #chart-container-wrapper {
   display: none;
-  font-size:25px;
-  font-weight: bold;
+  font-size:20px;
 }
 
 
@@ -72,6 +71,21 @@ select#yVariableSelect {
   margin-top: 20px; /* Adjust as needed */
   font-size: 12px;
   font-family: 'Lato', sans-serif;
+}
+
+#chart-header {
+  font-family: 'Lato', sans-serif;
+  color: black; /* Change the color as needed */
+  font-size: 24px; /* Adjust the font size */
+  font-weight: bold; /* Adjust the font weight */
+  text-decoration:underline;
+}
+
+#chart-subheader {
+  font-family: 'Lato', sans-serif;
+  color: black; /* Change the color as needed */
+  font-size: 16px; /* Adjust the font size */
+  font-style: italic; /* Add italic style or remove if not needed */
 }
 
 /* Add a new class for the chart SVG element */
