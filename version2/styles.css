@@ -92,6 +92,7 @@ select#yVariableSelect {
   justify-content: center; /* Adjust as needed */
   margin-top: 10px;
   gap: 10px;
+  align-items: center;
 }
 
 .button-1,
@@ -248,4 +249,11 @@ select#yVariableSelect {
     border: 0px;      
     border-radius: 8px;           
     pointer-events: none;         
+}
+
+#refreshButton {
+    margin-top: 10px;
+    margin-bottom:10px;
+    margin: 0 auto; /* Center the button horizontally */
+    display: block; /* Make sure it's a block-level element */
 }
