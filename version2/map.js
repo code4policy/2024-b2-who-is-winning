@@ -1,3 +1,5 @@
+
+
 // Define a function to get the data value for a country
 function getData(countryName, csvData, selectedOption) {
     const countryData = csvData.find(row => row.country === countryName);
