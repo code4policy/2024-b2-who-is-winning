@@ -54,12 +54,15 @@ select#yVariableSelect {
   padding: 5px; /* Add padding for better visibility and clickability */
   font-size: 12px; /* Adjust font size */
   margin-top: 10px; /* Adjust margin as needed */
+  font-weight:normal;
 }
 
 #chart-container-wrapper {
   display: none;
-  font-size: 30px;
+  font-size:25px;
+  font-weight: bold;
 }
+
 
 #chart-container {
   font-family: 'Lato', sans-serif;

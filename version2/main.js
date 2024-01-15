@@ -16,46 +16,46 @@ function updateChart() {
   var chartSubheader = document.getElementById('chart-subheader');
 
   if (yVariable === 'trade_balance') {
-    chartHeader.innerText = 'Top 10 Countries by Trade Balance';
+    chartHeader.innerText = 'Top 10 Countries by Trade Balance (% of GDP)';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'government_revenue') {
-    chartHeader.innerText = 'Top 10 Countries by Government Revenue as a % of GDP';
+    chartHeader.innerText = 'Top 10 Countries by Government Revenue (% of GDP)';
     chartSubheader.innerText = 'According to data from xxx';
     } else if (yVariable === 'GDP_per_Capita') {
     chartHeader.innerText = 'Top 10 Countries by GDP per capita (USD)';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'military_expenditure') {
-    chartHeader.innerText = 'Top 10 Countries by Military Expenditure';
+    chartHeader.innerText = 'Top 10 Countries by Military Expenditure (USD)';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'tourist_arrivals') {
-    chartHeader.innerText = 'Top 10 Countries by Tourist Arrivals';
+    chartHeader.innerText = 'Top 10 Countries by Number of Tourist Arrivals';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'dog_ownership') {
-    chartHeader.innerText = 'Top 10 Countries by Dog Ownership';
+    chartHeader.innerText = 'Top 10 Countries by Number of Dog Owners';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'cat_ownership') {
-    chartHeader.innerText = 'Top 10 Countries by Cat Ownership';
+    chartHeader.innerText = 'Top 10 Countries by Number of Cat Owners';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'movie_production') {
-    chartHeader.innerText = 'Top 10 Countries by Number of Movies';
+    chartHeader.innerText = 'Top 10 Countries by Number of Movies Made';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'box_office_numbers') {
-    chartHeader.innerText = 'Top 10 Countries by Box Office Numbers';
+    chartHeader.innerText = 'Top 10 Countries by Box Office Sales (USD)';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'air_quality') {
     chartHeader.innerText = 'Top 10 Countries by Air Quality';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'happiness') {
-    chartHeader.innerText = 'Top 10 Happiest Countries';
+    chartHeader.innerText = 'Top 10 Happiest Countries (Comparative Index)';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'life_expectancy') {
-    chartHeader.innerText = 'Top 10 Countries by Life Expectancy';
+    chartHeader.innerText = 'Top 10 Countries by Life Expectancy (Years)';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'mean_years_of_schooling') {
     chartHeader.innerText = 'Top 10 Countries by Mean Years of Schooling';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'income_per_capita') {
-    chartHeader.innerText = 'Top 10 Countries by Income per Capita';
+    chartHeader.innerText = 'Top 10 Countries by Income per Capita (USD)';
     chartSubheader.innerText = 'According to data from xxx';
   } else if (yVariable === 'gender_inequality') {
     chartHeader.innerText = 'Top 10 Countries by Gender Inequality';
