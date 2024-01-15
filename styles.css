@@ -85,8 +85,9 @@ select#yVariableSelect {
 #chart-subheader {
   font-family: 'Lato', sans-serif;
   color: black; /* Change the color as needed */
-  font-size: 16px; /* Adjust the font size */
+  font-size: 12px; /* Adjust the font size */
   font-style: italic; /* Add italic style or remove if not needed */
+  margin-top: 10px;
 }
 
 /* Add a new class for the chart SVG element */
@@ -233,6 +234,8 @@ select#yVariableSelect {
 .x-axis text {
     font-family: 'Lato', sans-serif;
     font-size: 15px/* Your X-axis styling here */
+    transform: rotate(-45deg); /* Rotate the text 45 degrees counter-clockwise */
+    transform-origin: bottom center; /* Set the rotation origin to the bottom center */
 }
 
 #countryInfo {
