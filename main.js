@@ -28,7 +28,7 @@ function updateChart() {
     chartHeader.innerText = 'Top 10 Countries by Military Expenditure (million USD)';
     chartSubheader.innerText = 'Source: “World Bank, Military Expenditure (Current USD) | Data.” Worldbank.org, 2019, data.worldbank.org/indicator/MS.MIL.XPND.CD.';
   } else if (yVariable === 'tourist_arrivals') {
-    chartHeader.innerText = 'Top 10 Countries by Number of International Tourist Arrivals (000s)';
+    chartHeader.innerText = 'Top 10 Countries by Number of International Tourist Arrivals';
     chartSubheader.innerText = 'Source: World Population Review. “Most Visited Countries 2020.” Worldpopulationreview.com, 2023, worldpopulationreview.com/country-rankings/most-visited-countries.';
   } else if (yVariable === 'dog_ownership') {
     chartHeader.innerText = 'Top 10 Countries by Number of Dog Owners (000s)';
@@ -49,7 +49,7 @@ function updateChart() {
     chartHeader.innerText = 'Top 10 Countries by Mean Years of Schooling';
     chartSubheader.innerText = 'Source: United Nations, 2021, hdr.undp.org/data-center/documentation-and-downloads.';
   } else if (yVariable === 'forest_area') {
-    chartHeader.innerText = 'Top 10 Countries by Forest Area (000s sq. km)';
+    chartHeader.innerText = 'Top 10 Countries by Forest Area (sq. km)';
     chartSubheader.innerText = 'Source: Ritchie, Hannah, and Max Roser. “Forest Area.” Our World in Data, 2021, ourworldindata.org/forest-area.';
   } else if (yVariable === 'renewables') {
     chartHeader.innerText = 'Top 10 Countries by Renewables (as a % of total electricity)';
