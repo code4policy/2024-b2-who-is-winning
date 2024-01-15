@@ -183,3 +183,34 @@ a:hover {
     margin: 20px 0; /* Adds some space above and below the button */
 }
 
+.navbar {
+    overflow: hidden;
+    background-color: #2A9D8F;
+    position: fixed; /* Fix the navbar to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the navbar stays on top of other elements */
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    font-family: 'Lato';
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #264653;
+    color: white;
+}
+
+.navbar .special-link {
+    color: #ad1710; /* Change font color to red */
+    float: right; /* Position it to the right */
+}

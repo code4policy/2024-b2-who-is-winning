@@ -10,7 +10,7 @@ function getData(countryName, csvData, selectedOption) {
 function getColor(d, csvData, selectedOption, colorScale) {
     const dataValue = getData(d.properties.ADMIN, csvData, selectedOption);
     if (dataValue === null) {
-        return 'grey'; // Color for countries with no data
+        return 'black'; // Color for countries with no data
     }
     return colorScale(dataValue); // Use a color scale for data values
 }
@@ -168,7 +168,7 @@ function addLegend(svg, colorScale) {
     legend.append("text")
       .attr("x", 0)
       .attr("y", legendHeight + 30)
-      .text("Note: Countries with grey-fill do not have data available on the selected indicator")
+      .text("Note: Countries with black-fill do not have data available on the selected indicator")
       .style("fill", "black");
 }
 
