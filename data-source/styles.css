@@ -144,19 +144,7 @@ a:hover {
     margin-right: auto; /* Centering the paragraph */
 }
 
-.footer-note {
-    font-size: 18px; /* Increased font size */
-    line-height: 1.8; /* Increased line height for better readability */
-    font-weight: 400; /* Adjusting font weight */
-    padding: 10px 20px; /* Adding padding for better text wrapping */
-    margin-bottom: 20px; /* Adding margin to separate from the next section */
-    text-align: left; /* Align text to left for standard reading flow */
-    max-width: 800px; /* Limiting the width for better line length */
-    margin-left: auto; /* Centering the paragraph */
-    margin-right: auto; /* Centering the paragraph */
-}
-
-.footer-note .prompt-quote {
+.introduction-paragraph .prompt-quote {
     font-family: 'Courier New', monospace; /* Example: Change font */
     font-size: 0.8em; /* Smaller font size */
     border: 1px solid #ccc; /* Add a border for the frame */
