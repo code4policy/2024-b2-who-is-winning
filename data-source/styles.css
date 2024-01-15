@@ -3,6 +3,7 @@
 /* Set background */
 html {
   background-color: #264653;
+  margin-top: 50px;
 }
 
 /* styles for the body of the site */
@@ -160,4 +161,5 @@ a:hover {
 .navbar .special-link {
     color: #ad1710; /* Change font color to red */
     float: right; /* Position it to the right */
+    text-decoration: bold;
 }
