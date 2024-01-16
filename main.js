@@ -37,7 +37,7 @@ function updateChart() {
     chartHeader.innerText = 'Top 10 Countries by Number of Cat Owners (000s)';
     chartSubheader.innerText = 'Source: World Population Review. “Pet Ownership Statistics by Country 2022.” Worldpopulationreview.com, 2023, worldpopulationreview.com/country-rankings/pet-ownership-statistics-by-country.';
   } else if (yVariable === 'box_office_numbers') {
-    chartHeader.innerText = 'Top 10 Countries by Box Office Sales (000s USD)';
+    chartHeader.innerText = 'Top 10 Countries by Box Office Sales (mill USD)';
     chartSubheader.innerText = 'Source: “Movie Production Countries.” The Numbers, www.the-numbers.com/movies/production-countries/#tab=territory.';
   } else if (yVariable === 'happiness') {
     chartHeader.innerText = 'Top 10 Happiest Countries (Comparative Index)';
